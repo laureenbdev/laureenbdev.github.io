@@ -19,24 +19,23 @@ const About: React.FC = () => {
                         <a href="https://github.com/meihwg" target="_blank" rel="noreferrer"><Icon icon="ant-design:github-filled" className="icon" /></a>
                     </div>
                 </div>
-                <div className="text">
-                    <h2> <Icon icon="pepicons-print:flower" /> Laureen Belgrand</h2>
-                    <p>Jeune développeuse de 21 ans, je travaille actuellement pour l'entreprise Eticeo chez laquelle j'interviens sur la création et la 
-                        maintenance de plateformes de formations. Mon travail concerne principalement les langages PHP, JavaScript et MySQL, parfois via 
-                        le framework Symphony et la librairie JQuery, et touche d'autres outils tels que Docker, [autres].
-                        <br /> <br />
-                        Je suis l'heureuse détentrice d'un BUT Informatique, parcours Réalisation d'Applications, un diplôme réalisé en 3 ans qui m'a permis 
-                        de découvrir de nombreuses technologies dans toutes sortes de domaines (développement web, logiciel, mobile, gestion de base de données, 
-                        etc.)  et qui m'a permis d'acquérir de précieuses compétences dans des domaines tels que la gestion de projet, le maquettage d'interfaces 
-                        ergonomiques, le travail d'équipe, [autres]
-                        <br /><br />
-                        Je réalise aussi parfois d'autres projets de mon côté que vous pourrez découvrir dans la section "Projets". J'aime réaliser des choses 
-                        visuellement attrayantes, réfléchir à des solutions à des problèmes, expérimenter en développant des choses amusantes, et c'est ce que 
-                        j'essaie de faire au maximum dans mon travail et sur mon temps libre. Je ne prétends pas être la meilleure dans ces domaines mais je 
-                        m'améliore tous les jours et je suis toujours prête à apprendre de nouvelles choses.
-                        <br /><br />
-                        En dehors de mon travail, je suis passionnée par l'art (notez le magnifique tableau en fond de cette section), j'aime manger, créer et 
-                        jouer au jeu Genshin Impact. Je suis apparemment quelqu'un de très drôle et sympathique, si j'en crois les rumeurs.</p>
+                <div className="right">
+                    <div className="text">
+                        <h2>Laureen Belgrand</h2>
+                        <h3>Développeuse web fullstack </h3>
+                        <p>Actuellement développeuse web fullstack pour l'entreprise Eticeo, j'aime aussi réaliser des projets informatiques sur mon temps libre.
+                            <br />
+                            Vous pourrez trouver, sur ce portefolio, des détails sur mon parcours ainsi que différents projets que j'ai pu réaliser durant mes études,
+                            mes activités professionnelles ou mon temps libre.
+                            <br />
+                            <br />
+                            Pour me contacter, vous pouvez utiliser les boutons ci-contre ou accéder à la section <a href="#contact">Contact</a>.
+                        </p>
+                    </div>
+                    <div className="text">
+                        <h3>Quelques liens :</h3>
+                        <p>Mon site multifonction sur le jeu Genshin Impact : <a href="https://meihwg.github.io/genshin/" target="_blank" rel="noreferrer">https://genshin-impact.vercel.app/</a></p>
+                    </div>
                 </div>
             </div>
         </section>
