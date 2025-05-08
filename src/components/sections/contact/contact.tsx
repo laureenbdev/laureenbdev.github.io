@@ -13,7 +13,7 @@ const Contact: React.FC = () => {
                 <div className="text">
                     <h2>Me contacter</h2>
                         <p> Vous pouvez me contacter via les moyens suivants : <br /> <br />
-                            <Icon icon="material-symbols:mail" /> : belgrandlaureen.tg2@gmail.com <br />
+                            <Icon icon="material-symbols:mail" /> : laureenbelgrand.dev@gmail.com <br />
                             <Icon icon="ic:sharp-phone" /> : 0768735193 <br />
                             <Icon icon="mdi:linkedin" /> : <a href="https://www.linkedin.com/in/laureen-belgrand-313652208/" target="_blank" rel="noreferrer">Laureen Belgrand</a> <br />
                             <Icon icon="ant-design:github-filled" /> : <a href="https://www.github.com/meihwg" target="_blank" rel="noreferrer">meihwg</a>

@@ -13,7 +13,7 @@ const About: React.FC = () => {
                 <div className="left">
                     <div className="image"></div>
                     <div className="icons">
-                        <a href="mailto:belgrandlaureen.tg2@gmail.com"><Icon icon="material-symbols:mail" className="icon" /></a>
+                        <a href="mailto:laureenbelgrand.dev@gmail.com"><Icon icon="material-symbols:mail" className="icon" /></a>
                         <span title="0768735193"><Icon icon="ic:sharp-phone" className="icon" /></span>
                         <a href="https://www.linkedin.com/in/laureen-belgrand-313652208/" target="_blank" rel="noreferrer"><Icon icon="mdi:linkedin" className="icon" /></a>
                         <a href="https://github.com/meihwg" target="_blank" rel="noreferrer"><Icon icon="ant-design:github-filled" className="icon" /></a>
