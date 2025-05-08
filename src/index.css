@@ -46,12 +46,6 @@ h2 {
   letter-spacing: 2px;
 }
 
-h3 {
-  font-family: 'Cinzel';
-  font-weight: 500;
-  letter-spacing: 2px;
-}
-
 p, a, span, label {
   color: var(--color-text);
 }
