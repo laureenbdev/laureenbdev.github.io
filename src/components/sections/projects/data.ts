@@ -9,6 +9,32 @@ export interface Project {
 
 export const projects: Project[] = [
     {
+        title: "Key figures - Plugin bloc Moodle",
+        images: ["keyfigures"],
+        tags: ["Web", "Professionnels"],
+        date: "07-2025",
+        description: `Dans le contexte de mon travail dans l'entreprise Eticeo, j'ai l'occasion de développer de nombreux plugins utilisés sur nos plateformes Moodle.
+                                <br>
+                                <br>
+                                Le plugin block_key_figures est le premier de ces plugins que j'ai eu l'occasion de publier pour le rendre accessible à la communauté.
+                                Le plugin est assez simple, il permet de visualiser des chiffres clés définis en dur dans les paramètres de l'instance du bloc.
+                                Par exemple, il peut être utilisé sur les pages d'accueil des plateformes pour montrer certaines données aux visiteurs et les motiver à s'inscrire aux formations.
+                                <br>
+                                <br>
+                                Avant de publier ce plugin, il a fallut lui apporter quelques modifications pour qu'il puisse être validés par les modérateurs Moodle.
+                                Ces modifications comprennent : 
+                                <ul>
+                                    <li>Refactorisation et simplification du plugin</li>
+                                    <li>Nettoyage du code</li>
+                                    <li>Ajout de documentation</li>
+                                    <li>Modification pour suivre les directives Moodle concernant notamment la syntaxe, la qualité du code, la sécurité, et la compatibilité avec les autres composants</li>
+                                </ul>
+                                <br>
+                                <br>
+                                Voici le lien vers le plugin : <a href='https://moodle.org/plugins/block_key_figures' target='_blank'>https://moodle.org/plugins/block_key_figures</a>`,
+        keywords: ['PHP', 'Moodle', 'Plugin', 'Block', 'Optimisation', 'Refactorisation', 'Nettoyage', 'Normes'],
+    },
+    {
         title: "GADI - Gestion Administrative du Département Informatiques",
         images: ["gadi", "gadi-2", "gadi-4", "gadi-3"],
         tags: ["Web", "Universitaires"],

@@ -2,6 +2,10 @@
     background: url("/public/img/banner.jpg") no-repeat center 50%/cover, var(--color-primary);
     padding: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80dvh;
 
     .filter {
         width: 100%;
@@ -29,21 +33,31 @@
         margin: 50px;
     }
 
-    .text {
+    .left {
         max-width: 50%;
+    }
+
+    .text {
+
         background-color: rgba(255, 255, 255, 0.7);
         border-radius: 20px;
         padding: 30px;
         margin: 30px;
         line-height: 1.7rem;
+
+        h2 {
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: var(--color-primary);
+        }
+
+        a:hover {
+            color: var(--color-primary);
+        }
     }
 
-    h2 {
-        padding-bottom: 20px;
-        text-align: center;
-    }
 
-    a:hover {
-        color: var(--color-primary);
-    }
 }

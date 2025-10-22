@@ -11,8 +11,8 @@ import Footer from '../footer/footer.tsx';
 const MainPage: React.FC = () => {
     return (
         <>
-            <Header />
             <About />
+            <Header />
             <Projects />
             <Career />
             <Contact />
