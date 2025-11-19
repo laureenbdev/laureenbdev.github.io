@@ -1,0 +1,170 @@
+{
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "sections": {
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "Full Stack Web Developer",
+    "bio": {
+      "paragraph1": "Currently a Full Stack Web Developer at Eticeo, I develop, maintain, and update plugins and custom training platforms to meet the needs of clients in various fields.",
+      "paragraph2": "Passionate about development for many years, I obtained a BUT in Computer Science in 2024 and gained experience through several internships.",
+      "paragraph3": "On this portfolio, you will find different projects I worked on during my studies, my job, or my free time."
+    }
+  },
+  "projects": {
+    "viewProject": "View project",
+    "viewMore": "See more details",
+    "github": "GitHub",
+    "keywords": "Keywords",
+    "filters": {
+      "all": "All",
+      "type": {
+        "all": "All",
+        "personal": "Personal",
+        "professional": "Professional",
+        "academic": "Academic"
+      },
+      "category": {
+        "all": "All",
+        "web": "Web",
+        "application": "Software",
+        "mobile": "Mobile",
+        "game": "Game"
+      }
+    },
+    "list": {
+      "project1": {
+        "title": "Key figures - Moodle block plugin",
+        "descriptionShort": "",
+        "description": "As part of my work at Eticeo, I develop many plugins used on our Moodle platforms.<br><br>The block_key_figures plugin is the first one I published to make it available to the community. The plugin is rather simple: it allows administrators to display key figures defined in the block instance settings. For example, it can be used on homepage dashboards to show data to visitors and encourage them to enroll in courses.<br><br>Before publishing this plugin, I had to make several changes to meet Moodle's validation requirements. These changes included: <ul><li>Refactoring and simplifying the plugin</li><li>Code cleanup</li><li>Adding documentation</li><li>Modifications to follow Moodle guidelines, especially regarding syntax, code quality, security, and compatibility with other components</li></ul>",
+        "link": "https://moodle.org/plugins/block_key_figures"
+      },
+      "project2": {
+        "title": "GADI - Administrative Management of the Computer Science Department",
+        "descriptionShort": "",
+        "description": "During my third year of BUT, I worked on a year-long project. The goal, carried out by a team of 7, was to develop a web application to simplify course and resource management for teachers and staff of our Computer Science department.<br />The objective was to <b>simulate a software development company</b>. We had roles, regular team meetings and meetings with <b>clients</b>, deadlines, and more.<br /><br />The application, named GADI, allows teachers to plan courses throughout the year, manage required resources (rooms, equipment, etc.), manage students and lab groups, and generate timetables.<br /><br />The application was built with <b>Angular</b> for the front-end and <b>Symfony</b> for the back-end, with <b>PostgreSQL</b> as the database. My main role was front-end development: creating UI mockups and implementing them in Angular and CSS. I also handled communication with clients and future users to define requirements and organize meetings.<br /><br />This project was very valuable, as it taught us how to manage a complex long-term project and collaborate effectively as a team."
+      },
+      "project3": {
+        "title": "Black Hole Bot - Video game",
+        "descriptionShort": "",
+        "description": "At the start of my third year, we participated in an internal Game Jam organized by our teachers. The goal was to create a video game in a limited time, following a given theme.<br />We had 4 days, in a team of 4, to build a game based on the themes <b>“Master of Gravity”</b> and <b>“Once upon a time, there was a robot”</b>.<br /><br />We created Black Hole Bot, a 2D platformer where the player controls a robot navigating levels by using gravity to retrieve missing spaceship parts. Levels have different gravity modes, and the robot can use a black hole power to defend against asteroids.<br /><br />The game was built using the Python library <b>Pygame</b> and presented to a jury of teachers at the end of the Game Jam. Besides development, I also created and animated the sprites."
+      },
+      "project4": {
+        "title": "Intemporal - Watch auction website",
+        "descriptionShort": "",
+        "description": "The Intemporal project, developed during my second year, aimed to build a functional auction website. The theme and auction type were up to us; we chose a <b>watch auction site</b> with <b>English (ascending) CToC auctions</b>.<br /><br />The goal was to develop a functional, secure website handling real-time auctions and allowing users to follow and participate in ongoing bids.<br /><br />In the end, our site allowed users to register, submit watches for sale, view active auctions, and bid on them in real time. The site was secure, and we also considered item verification policies.<br /><br />This team project (6 people) used <b>HTML, CSS, JavaScript, PHP, SQLite</b>. I was responsible for the database schema, creation scripts, and populating it with sample data before joining the back-end team.<br /><br />This project earned us the third-place jury award."
+      },
+      "project5": {
+        "title": "Chatjsuispt - Parody AI chatbot",
+        "descriptionShort": "",
+        "description": "This project started as a joke with a friend before we decided to actually develop it.<br />Chatjsuispt is a <b>parody AI chatbot</b> mocking ChatGPT and its occasional incoherent answers. The bot intentionally responds with absurd and nonsensical messages.<br /><br />It uses <b>HTML, CSS, and JavaScript</b> and combines several answer-generation methods: predefined responses based on detected keywords, random responses from a list, and a generator that produces poorly constructed sentences.",
+        "link": "https://www.ethan-ehrler.fr/chatjsuispt/"
+      },
+      "project6": {
+        "title": "Hopack",
+        "descriptionShort": "",
+        "description": "During my first year of BUT, we developed an event-management application as a team of 6. The event type was up to us; we chose to build an application for <b>wedding planners</b> to manage weddings, schedules, contact lists, and more.<br /><br />The application was built in <b>Java</b> with a <b>JavaFX</b> GUI. My main tasks were designing UI mockups and implementing them in JavaFX. The goal was to apply ergonomic principles and design a clean, intuitive interface."
+      },
+      "project7": {
+        "title": "Hardis Group - Presentation website for an IT consulting company",
+        "descriptionShort": "",
+        "description": "This project, completed in a team of 3, involved building a presentation website for a Grenoble-based IT services company. It is one of the first websites we developed.<br /><br />We built it using <b>HTML and CSS</b>."
+      }
+    }
+  },
+  "skills": {
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Databases",
+      "devops": "DevOps & Tools",
+      "design": "Design & UX",
+      "languages": "Languages"
+    }
+  },
+  "experience": {
+    "now": "today",
+    "list": {
+      "exp1": {
+        "title": "Adjunct Lecturer in Web Interface Development",
+        "company": "IUT2 Grenoble, Computer Science Department - Grenoble (38)",
+        "startDate": "Oct. 2025",
+        "endDate": "now",
+        "description": {
+          "1": "Teaching first-year HTML/CSS Web Interface Development",
+          "2": "Supervising practical work and projects"
+        }
+      },
+      "exp2": {
+        "title": "Full Stack Web Developer",
+        "company": "Eticeo - Grenoble (38)",
+        "startDate": "Sept. 2024",
+        "endDate": "now",
+        "description": {
+          "1": "Graphic and functional customization of online training platforms before deployment",
+          "2": "Developing custom features via plugins to meet client needs",
+          "3": "Updates, bug fixing, and continuous improvement after deployment"
+        }
+      },
+      "exp3": {
+        "title": "BUT Computer Science",
+        "company": "IUT2 Grenoble, Computer Science Department - Grenoble (38)",
+        "startDate": "2021",
+        "endDate": "2024",
+        "description": {
+          "1": "Specialization: Développement d'Applications"
+        }
+      },
+      "exp4": {
+        "title": "Internship - Full Stack Web Developer",
+        "company": "Branchet Solutions - Meylan (38)",
+        "startDate": "Mar. 2024",
+        "endDate": "Jun. 2024",
+        "description": {
+          "1": "Design, development, and integration of a new business process into an existing application",
+          "2": "Design of a complex, interactive form UI and database schema"
+        }
+      },
+      "exp5": {
+        "title": "Internship - Front-end Web Developer - Data Visualization",
+        "company": "LIG, Grenoble Computer Science Laboratory - Grenoble (38)",
+        "startDate": "Apr. 2023",
+        "endDate": "Jul. 2023",
+        "description": {
+          "1": "IIHM team - Visualization of highly uneven distributions applied to the lab's CO₂ emissions"
+        }
+      },
+      "exp6": {
+        "title": "Baccalauréat Général",
+        "company": "Lycée Portes de l'Oisans - Vizille (38)",
+        "startDate": "2019",
+        "endDate": "2021",
+        "description": {
+          "1": "Specializations: Arts plastiques et Numérique et Sciences Informatiques – Option Mathématiques Complémentaires"
+        }
+      }
+    }
+  },
+  "contact": {
+    "intro": "",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "linkedinProfile": "LinkedIn Profile",
+    "github": "GitHub",
+    "githubProfile": "GitHub Profile"
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

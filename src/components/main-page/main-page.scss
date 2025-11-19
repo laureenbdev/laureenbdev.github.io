@@ -1,0 +1,103 @@
+.portfolio {
+  min-height: 100dvh;
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-secondary);
+  line-height: 1.7;
+}
+
+// Sections communes
+.section {
+  min-height: 100dvh;
+  padding: 8rem 0;
+  position: relative;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .section-container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    margin-bottom: 5rem;
+    position: relative;
+
+    .section-number {
+      font-family: var(--font-primary);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--color-text-light);
+      letter-spacing: 2px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        width: 30px;
+        height: 1px;
+        background-color: var(--color-accent-pop);
+      }
+    }
+
+    .section-title {
+      font-family: var(--font-primary);
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      color: var(--color-charcoal);
+      margin: 0;
+    }
+  }
+}
+
+// Tags de technologies (utilisé dans plusieurs sections)
+.tech-tag {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  background-color: var(--color-stone);
+  color: var(--color-charcoal);
+  border: 1px solid var(--color-stone);
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--color-accent-pop);
+    color: var(--color-cream);
+    border-color: var(--color-accent-pop);
+  }
+}
+
+// Responsive
+@media (max-width: 968px) {
+  .section {
+    padding: 5rem 0;
+
+    .section-container {
+      padding: 0 2rem;
+    }
+
+    .section-header {
+      .section-title {
+        font-size: 2rem;
+      }
+    }
+  }
+}

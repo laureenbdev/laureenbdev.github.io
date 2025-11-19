@@ -1,0 +1,171 @@
+{
+  "nav": {
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "experience": "Parcours",
+    "contact": "Contact",
+    "language": "Langue"
+  },
+  "sections": {
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "experience": "Parcours",
+    "contact": "Contact"
+  },
+  "about": {
+    "title": "Développeuse web Full Stack",
+    "bio": {
+      "paragraph1": "Actuellement développeuse web Full Stack pour l'entreprise Eticeo, je développe, maintient et mets à jour des plugins et des plateformes de formations personnalisées pour répondre aux besoins de clients dans de nombreux domaines.",
+      "paragraph2": "Passionnée par le développement depuis de nombreuses années, j'ai obtenu un BUT Informatique en 2024 et j'ai pu avoir quelques expériences dans le domaine lors de stages.",
+      "paragraph3": "Vous pourrez retrouver sur ce portfolio différents projets sur lesquels j'ai pu travailler dans le cadre de mes études, de mon travail ou de mon temps libree."
+    }
+  },
+  "projects": {
+    "viewProject": "Voir le projet",
+    "viewMore": "Voir plus de détails",
+    "github": "GitHub",
+    "keywords": "Mots-clés",
+    "filters": {
+      "all": "Tout",
+      "type": {
+        "all": "Tout",
+        "personal": "Personnel",
+        "professional": "Professionnel",
+        "academic": "Universitaire"
+      },
+      "category": {
+        "all": "Tout",
+        "web": "Web",
+        "application": "Logiciel",
+        "mobile": "Mobile",
+        "game": "Jeu"
+      }
+    },
+    "list": {
+      "project1": {
+        "title": "Key figures - Plugin bloc Moodle",
+        "descriptionShort": "",
+        "description": "Dans le contexte de mon travail dans l'entreprise Eticeo, j'ai l'occasion de développer de nombreux plugins utilisés sur nos plateformes Moodle.<br><br>Le plugin block_key_figures est le premier de ces plugins que j'ai publié pour le rendre accessible à la communauté. Le plugin est assez simple, il permet de visualiser des chiffres clés définis en dur dans les paramètres de l'instance du bloc. Par exemple, il peut être utilisé sur les pages d'accueil des plateformes pour montrer certaines données aux visiteurs et les motiver à s'inscrire aux formations.<br><br>Avant de publier ce plugin, il a fallut lui apporter quelques modifications pour qu'il puisse être validés par les modérateurs Moodle. Ces modifications comprennent : <ul><li>Refactorisation et simplification du plugin</li><li>Nettoyage du code</li><li>Ajout de documentation</li><li>Modification pour suivre les directives Moodle concernant notamment la syntaxe, la qualité du code, la sécurité, et la compatibilité avec les autres composants</li></ul>",
+        "link": "https://moodle.org/plugins/block_key_figures"
+      },
+      "project2": {
+        "title": "GADI - Gestion Administrative du Département Informatiques",
+        "descriptionShort": "",
+        "description": "Durant ma troisième année de BUT, j'ai eu l'occasion de travailler sur un projet complet sur l'entièreté de l'année scolaire. Ce projet, réalisé en équipe de 7, avait pour objectif de réaliser une application web afin de faciliter l'organisation des cours et des ressources à nos professeurs et personnels du département informatique de notre IUT.<br />L'objectif de ce projet était de ce projet était de <b>simuler une entreprise</b> de développement logiciel. Nous avions donc des postes au sein de cette entreprise, des réunions régulières d'équipes et avec les <b>clients</b>, des délais à respecter, etc.<br /><br />L'application réalisée, nommée GADI pour Gestion Administrative du Département Informatique, permet aux professeurs de planifier leurs séances de cours sur l'entièreté de l'année, de gérer les ressources nécessaires à ces cours (salles, matériels, etc.), de gérer les étudiants et les groupes de TP, etc. afin de permettre la création des emplois du temps.<br /><br />L'application a été réalisée en <b>Angular</b> pour le front-end et en <b>Symfony</b> pour le back-end. Nous avons également utilisé <b>PostgreSQL</b> pour la base de données. Mon rôle dans l'équipe a principalement été de travailler sur le front-end de l'application, en réalisant les maquettes IHM et en les implémentant en Angular et en CSS. J'ai également eu l'occasion d'être responsable de la communication avec les clients et les futurs utilisateurs afin de définir les besoins et organiser les réunions.<br /><br />Cette expérience a été très enrichissante car elle nous a permit de prendre en main un projet plus compliqué que ce que nous avions l'habitude de réaliser et de travailler en équipe sur un projet de longue durée. Nous avons également eu l'occasion de travailler avec des clients et de devoir répondre à leurs besoins."
+      },
+      "project3": {
+        "title": "Black Hole Bot - Jeu vidéo",
+        "descriptionShort": "",
+        "description": "En début de troisième année, nous avons eu l'occasion de participer à une Game Jam interne à notre IUT organisée par nos professeurs. L'objectif de la Game Jam est de créer un jeu vidéo dans un temps limité avec un thème imposé.<br />Pour cette occasion, nous avons eu 4 jours, en équipe de 4, pour créer un jeu vidéo sur les thèmes <b>''Maître de la gravité''</b> et <b>''Il était une fois un robot''</b>.<br /><br />Dans cette objectif, nous avons créé Black Hole Bot, un jeu de plateforme en 2D où le joueur incarne un robot qui doit se frayer un chemin à travers des niveaux en utilisant la gravité à son avantage afin de récupérer les différentes pièces manquantes de son vaisseau. Les différents niveaux utilisent des gravités différentes et le robot peut utiliser le pouvoir du trou noir afin de se défendre contre les astéroïdes.<br /><br />Le jeu a été réalisé grâce à la librairie Python <b>Pygame</b> et a été présenté à la fin de la Game Jam devant un jury composé de nos professeurs. En plus du développement, mon rôle dans l'équipe a aussi consisté à réaliser les sprites du jeu et à les animer."
+      },
+      "project4": {
+        "title": "Intemporal - Site de vente aux enchères de montres",
+        "descriptionShort": "",
+        "description": "L'objectif du projet Intemporal, réalisé en deuxième année, était de réaliser un site de vente aux enchères fonctionnel. Nous avions le choix du thèmes du site et du type d'enchères réalisées. Nous avons choisi de réaliser un site de vente aux enchères de montres et de proposer des <b>enchères anglaises (ascendantes)</b> en <b>CToC</b>.<br />L'objectif de l'exercice était de réaliser un site fonctionnel et sécurisé, prenant en charge des enchères en temps réel et permettant aux utilisateurs de suivre les enchères en cours et de participer à celles-ci.<br /><br />A l'issue du projet, notre site permettait aux utilisateurs de s'inscrire, d'ajouter leurs montres à la vente, de visualiser les enchères en cours et de participer à celles-ci. Le site était sécurisé et les enchères étaient gérées en temps réel. Nous avons également réfléchi à une politique de vérification des articles afin de garantir la validité des annonces.<br /><br />Nous avons réalisé ce projet en équipe de 6 personnes et nous avons utilisé les technologies suivantes : <b>HTML, CSS, JavaScript, PHP, SQLite</b>. Mon rôle dans l'équipe a consisté à créer le schéma de la base de données, les scripts de création et de peuplement de la base de données avec des données fictives pour les tests et la démonstration, puis j'ai rejoins l'équipe back-end.<br /><br />Ce projet nous a vallut le troisième prix du jury de notre promotion."
+      },
+      "project5": {
+        "title": "Chatjsuispt - Chatbot IA parodique",
+        "descriptionShort": "",
+        "description": "Ce projet est initialement né d'une blague avec un ami avant que nous décidions de le réaliser réellement.<br />Chatjsuispt est un <b>chatbot IA</b> qui a pour objectif de parodier le chatbot ChatGPT de OpenAI, et ses réponses parfois incohérentes. Son objectif est, contrairement à une IA classique, de ne répondre que des choses absurdes et incohérentes.<br /><br />Ce projet utilise <b>HTML, CSS et JavaScript</b> et intègre plusieurs méthodes de génération de réponses. Certaines sont prédéfinies lorsque certains mots sont détéctés, d'autres prennent des réponses aléatoires dans une liste de réponses prédéfinies, et d'autres encore utilisent une méthode de génération de phrases mal construites.",
+        "link": "https://www.ethan-ehrler.fr/chatjsuispt/"
+      },
+      "project6": {
+        "title": "Hopack",
+        "descriptionShort": "",
+        "description": "Lors de notre première année de BUT, il nous a été demandé de réalisé une application d'organisation d'évènementiel en équipe de 6. Le type d'évènements était libre et nous avons choisi de réaliser une application <b>d'organisation de mariages</b> à destination <b>d'organisateurs de mariage professionnels</b>. L'objectif pour eux était de gérer leurs mariages, leur calendrier, leur liste de contacts de prestataires, etc.<br /><br />L'application devait être réalisée en <b>Java</b> avec une interface graphique en <b>JavaFX</b>. Dans l'équipe, j'ai principalement travaillé sur les maquettes IHM et leur implémentation en JavaFX. L'objectif principal de ce projet était de travailler sur les critères ergonomiques, nous avons donc pris soin de mettre en oeuvre une interface simple et intuitive pour les utilisateurs."
+      },
+      "project7": {
+        "title": "Hardis Group - Site internet de présentation d'une ESN",
+        "descriptionShort": "",
+        "description": "L'objectif de ce projet, réalisé en équipe de 3, était de réaliser un site vitrine de présentation d'une ESN (Entreprise de Services du Numérique) du secteur grenoblois. Il s'agit d'un des premiers sites internet que nous avons pu réaliser.<br /><br />Nous avons réalisé ce site en <b>HTML et CSS</b>."
+      }
+    }
+  },
+  "skills": {
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Bases de données",
+      "devops": "DevOps & Outils",
+      "design": "Design & UX",
+      "languages": "Langues"
+    }
+  },
+  "experience": {
+    "now": "aujourd'hui",
+    "list": {
+      "exp1": {
+        "title": "Enseignante vacataire en Développement d'interfaces web",
+        "company": "IUT2 Grenoble, Département Informatique - Grenoble (38)",
+        "startDate": "oct. 2025",
+        "endDate": "now",
+        "description": {
+          "1": "Intervention sur le cours de Développement d'interfaces web (HTML/CSS) auprès des étudiants de première année de BUT Informatique",
+          "2": "Encadrement de travaux pratiques et de projet"
+        }
+      },
+      "exp2": {
+        "title": "Développeuse web Full Stack",
+        "company": "Eticeo - Grenoble (38)",
+        "startDate": "sept. 2024",
+        "endDate": "now",
+        "description": {
+          "1": "Personnalisation graphique et fonctionnelle de plateformes de formation en ligne avant mise en production",
+          "2": "Création de fonctionnalités spécifiques via des plugins pour répondre aux besoins du client",
+          "3": "Mise à jour, résolution de bugs et amélioration continue des plateformes et des outils après déploiement"
+        }
+      },
+      "exp3": {
+        "title": "BUT Informatique",
+        "company": "IUT2 Grenoble, Département Informatique - Grenoble (38)",
+        "startDate": "2021",
+        "endDate": "2024",
+        "description": {
+          "1": "Parcours Développement d'Applications"
+        }
+      },
+      "exp4": {
+        "title": "Stage  - Développeuse web Full Stack",
+        "company": "Branchet Solutions - Meylan (38)",
+        "startDate": "mars 2024",
+        "endDate": "juin 2024",
+        "description": {
+          "1": "Conception, développement et intégration d'un nouveau processus métier à une application existante",
+          "2": "Conception de l'interface d'un formulaire complexe et interactif et du schéma de la base de donnée"
+        }
+      },
+      "exp5": {
+        "title": "Stage - Développeuse web front-end - Visualisation de données",
+        "company": "LIG, Laboratoire d'Informatique de Grenoble - Grenoble (38)",
+        "startDate": "avr. 2023",
+        "endDate": "juil. 2023",
+        "description": {
+          "1": "Equipe IIHM - Visualisation de distributions fortement inégales appliquées aux émissions CO₂ du laboratoire"
+        }
+      },
+      "exp6": {
+        "title": "Baccalauréat Général",
+        "company": "Lycée Portes de l'Oisans - Vizille (38)",
+        "startDate": "2019",
+        "endDate": "2021",
+        "description": {
+          "1": "Spécialités Arts plastiques et Numérique et Sciences Informatiques - Option Mathématiques Complémentaires"
+        }
+      }
+    }
+  },
+  "contact": {
+    "intro": "",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "linkedinProfile": "Profil LinkedIn",
+    "github": "GitHub",
+    "githubProfile": "Profil GitHub"
+  },
+  "footer": {
+    "rights": "Tous droits réservés."
+  }
+}
+  

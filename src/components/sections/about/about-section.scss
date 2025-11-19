@@ -1,0 +1,50 @@
+.section-about {
+  display: flex;
+  align-items: center;
+
+  .about-content {
+    max-width: 900px;
+
+    .about-name {
+      font-family: var(--font-primary);
+      font-size: 4.5rem;
+      font-weight: 400;
+      letter-spacing: 6px;
+      color: var(--color-charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .about-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: var(--color-text-light);
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .about-bio {
+      p {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: var(--color-text);
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .section-about .about-content .about-name {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-about .about-content .about-name {
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+  }
+}
+
