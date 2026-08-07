@@ -233,6 +233,6 @@ export const experienceData: Experience[] = [
 export const contactData: ContactInfo = {
   email: "laureenbelgrand.dev@gmail.com",
   linkedin: "https://www.linkedin.com/in/laureen-belgrand-313652208/",
-  github: "https://github.com/meihwg"
+  github: "https://github.com/laureenbdev"
 };
 
