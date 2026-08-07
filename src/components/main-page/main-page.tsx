@@ -55,6 +55,7 @@ const MainPage: React.FC = () => {
 
         const observeAnimatedElements = () => {
             document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach((el) => {
+                if (el.closest('[data-manual-reveal="true"]')) return;
                 animatedObserver.observe(el);
             });
         };
@@ -87,6 +88,32 @@ const MainPage: React.FC = () => {
         };
     }, []);
 
+    const replaySectionAnimations = (sectionId: string) => {
+        const section = sectionsRef.current[sectionId];
+        if (!section) return;
+
+        const animated = section.querySelectorAll('.animate-on-scroll');
+        animated.forEach((el) => {
+            const htmlEl = el as HTMLElement;
+            // Évite que le délai d'apparition s'applique aussi aux hovers
+            htmlEl.style.transitionDelay = '';
+            htmlEl.style.setProperty('--appear-delay', '0s');
+            htmlEl.classList.remove('visible');
+        });
+
+        // Forcer le reflow pour relancer les transitions
+        void section.offsetHeight;
+
+        animated.forEach((el, index) => {
+            const htmlEl = el as HTMLElement;
+            htmlEl.style.setProperty('--appear-delay', `${index * 0.08}s`);
+        });
+
+        window.setTimeout(() => {
+            animated.forEach((el) => el.classList.add('visible'));
+        }, 280);
+    };
+
     const scrollToSection = (sectionId: string) => {
         const element = sectionsRef.current[sectionId];
         if (element) {
@@ -96,6 +123,7 @@ const MainPage: React.FC = () => {
                 top: elementPosition,
                 behavior: 'smooth'
             });
+            replaySectionAnimations(sectionId);
         }
     };
 

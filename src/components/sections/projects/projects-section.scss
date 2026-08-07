@@ -50,6 +50,10 @@
     scrollbar-width: thin;
     scrollbar-color: var(--color-stone) transparent;
 
+    &.is-filtering {
+      pointer-events: none;
+    }
+
     &::-webkit-scrollbar {
       height: 8px;
     }
@@ -78,18 +82,21 @@
     background-color: var(--color-cream);
     border: 1px solid var(--color-stone);
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
+    transform: translateY(24px);
+    transition: opacity 0.35s ease, transform 0.35s ease, box-shadow 0.3s ease;
     width: 500px;
     max-width: 50vw;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     border-left: 3px solid var(--color-accent-pop);
+    pointer-events: none;
 
     &.visible {
       opacity: 1;
       transform: translateY(0);
+      transition-duration: 0.55s;
+      pointer-events: auto;
     }
 
     &.visible:hover {

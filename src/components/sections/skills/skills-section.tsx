@@ -27,7 +27,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef }) => {
                         <div 
                             key={index} 
                             className="skill-category animate-on-scroll"
-                            style={{ animationDelay: `${index * 0.1}s` }}
+                            style={{ transitionDelay: `${index * 0.1}s` }}
                         >
                             <h3 className="skill-category-title">{t(skill.categoryKey)}</h3>
                             <div className="skill-items">

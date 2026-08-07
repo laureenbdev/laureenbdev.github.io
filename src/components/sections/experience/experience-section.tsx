@@ -37,7 +37,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
                                     isCurrent ? 'experience-item--current' : 'experience-item--past',
                                     'animate-on-scroll',
                                 ].join(' ')}
-                                style={{ animationDelay: `${index * 0.15}s` }}
+                                style={{ transitionDelay: `${index * 0.15}s` }}
                             >
                                 <div className="experience-marker" aria-hidden="true"></div>
                                 <div className="experience-content">

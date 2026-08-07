@@ -35,6 +35,8 @@ export interface ContactInfo {
   email: string;
   linkedin?: string;
   github?: string;
+  cssbattle?: string;
+  codewars?: string;
 }
 
 export interface AboutData {
@@ -196,7 +198,7 @@ export const experienceData: Experience[] = [
       "experience.list.exp7.description.1",
       "experience.list.exp7.description.2"
     ],
-    technologies: ["HTML", "CSS", "JavaScript"],
+    technologies: ["HTML", "CSS", "Hugo"],
     image: "/img/exp/prologin.webp"
   },
   {
@@ -256,6 +258,8 @@ export const experienceData: Experience[] = [
 export const contactData: ContactInfo = {
   email: "laureenbelgrand.dev@gmail.com",
   linkedin: "https://www.linkedin.com/in/laureen-belgrand-313652208/",
-  github: "https://github.com/laureenbdev"
+  github: "https://github.com/laureenbdev",
+  cssbattle: "https://cssbattle.dev/player/mei_",
+  codewars: "https://www.codewars.com/users/meimei_"
 };
 

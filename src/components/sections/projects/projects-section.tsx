@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import './projects-section.scss';
 import { projects, Project, ProjectType, ProjectCategory } from '../../../data/data';
@@ -8,12 +8,20 @@ interface ProjectsSectionProps {
     sectionRef: (el: HTMLDivElement | null) => void;
 }
 
+const HIDE_DURATION_MS = 320;
+
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
     const { t } = useTranslation();
     const [selectedType, setSelectedType] = useState<ProjectType>('all');
     const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isFiltering, setIsFiltering] = useState(false);
+    const [hasRevealed, setHasRevealed] = useState(false);
+
+    const sectionElRef = useRef<HTMLDivElement | null>(null);
+    const scrollRef = useRef<HTMLDivElement | null>(null);
+    const filterTimeoutRef = useRef<number | null>(null);
 
     const filteredProjects = useMemo(() => {
         return projects.filter(project => {
@@ -25,6 +33,92 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
 
     const projectTypes: ProjectType[] = ['all', 'personal', 'professional', 'academic'];
     const projectCategories: ProjectCategory[] = ['all', 'web', 'application', 'mobile', 'game'];
+
+    const setCombinedRef = useCallback((el: HTMLDivElement | null) => {
+        sectionElRef.current = el;
+        sectionRef(el);
+    }, [sectionRef]);
+
+    const hideCards = useCallback(() => {
+        const cards = scrollRef.current?.querySelectorAll('.project-card');
+        cards?.forEach((card) => {
+            const el = card as HTMLElement;
+            el.style.transitionDelay = '0s';
+            el.classList.remove('visible');
+        });
+    }, []);
+
+    const revealCards = useCallback(() => {
+        const cards = scrollRef.current?.querySelectorAll('.project-card');
+        cards?.forEach((card, index) => {
+            const el = card as HTMLElement;
+            el.classList.remove('visible');
+            el.style.transitionDelay = `${index * 0.08}s`;
+        });
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                cards?.forEach((card) => card.classList.add('visible'));
+            });
+        });
+    }, []);
+
+    const changeFilter = useCallback((apply: () => void) => {
+        if (filterTimeoutRef.current) {
+            window.clearTimeout(filterTimeoutRef.current);
+        }
+
+        setIsFiltering(true);
+        hideCards();
+
+        filterTimeoutRef.current = window.setTimeout(() => {
+            apply();
+            setIsFiltering(false);
+
+            window.setTimeout(() => {
+                revealCards();
+                setHasRevealed(true);
+            }, 40);
+        }, HIDE_DURATION_MS);
+    }, [hideCards, revealCards]);
+
+    const handleTypeChange = (type: ProjectType) => {
+        if (type === selectedType || isFiltering) return;
+        changeFilter(() => setSelectedType(type));
+    };
+
+    const handleCategoryChange = (category: ProjectCategory) => {
+        if (category === selectedCategory || isFiltering) return;
+        changeFilter(() => setSelectedCategory(category));
+    };
+
+    // Première apparition au scroll dans la section
+    useEffect(() => {
+        const section = sectionElRef.current;
+        if (!section || hasRevealed) return;
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((entry) => entry.isIntersecting)) {
+                    revealCards();
+                    setHasRevealed(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        observer.observe(section);
+        return () => observer.disconnect();
+    }, [hasRevealed, revealCards]);
+
+    useEffect(() => {
+        return () => {
+            if (filterTimeoutRef.current) {
+                window.clearTimeout(filterTimeoutRef.current);
+            }
+        };
+    }, []);
 
     const openModal = (project: Project) => {
         setSelectedProject(project);
@@ -41,7 +135,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
             <section 
                 id="projects" 
                 className="section section-projects"
-                ref={sectionRef}
+                ref={setCombinedRef}
                 data-section-id="projects"
             >
                 <div className="section-container">
@@ -57,7 +151,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                                     <button
                                         key={type}
                                         className={`filter-tab ${selectedType === type ? 'active' : ''}`}
-                                        onClick={() => setSelectedType(type)}
+                                        onClick={() => handleTypeChange(type)}
+                                        disabled={isFiltering}
                                     >
                                         {t(`projects.filters.type.${type}`)}
                                     </button>
@@ -70,7 +165,8 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                                     <button
                                         key={category}
                                         className={`filter-tab ${selectedCategory === category ? 'active' : ''}`}
-                                        onClick={() => setSelectedCategory(category)}
+                                        onClick={() => handleCategoryChange(category)}
+                                        disabled={isFiltering}
                                     >
                                         {t(`projects.filters.category.${category}`)}
                                     </button>
@@ -79,8 +175,11 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                         </div>
                     </div>
 
-                    <div className="projects-scroll-container">
-                        <div className="projects-scroll">
+                    <div
+                        className={`projects-scroll-container${isFiltering ? ' is-filtering' : ''}`}
+                        data-manual-reveal="true"
+                    >
+                        <div className="projects-scroll" ref={scrollRef}>
                             {filteredProjects.map((project, index) => {
                                 const firstImage = project.images && project.images.length > 0 
                                     ? `/img/projects/${project.images[0]}.png` 
@@ -88,9 +187,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                                 
                                 return (
                                     <div 
-                                        key={index} 
+                                        key={project.titleKey} 
                                         className="project-card animate-on-scroll"
-                                        style={{ transitionDelay: `${index * 0.1}s` }}
+                                        style={{ transitionDelay: `${index * 0.08}s` }}
                                     >
                                         {firstImage && (
                                             <div 

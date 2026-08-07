@@ -174,11 +174,17 @@
   },
   "contact": {
     "intro": "",
+    "contactsTitle": "Contacts",
+    "linksTitle": "Useful links",
     "email": "Email",
     "linkedin": "LinkedIn",
     "linkedinProfile": "LinkedIn Profile",
     "github": "GitHub",
-    "githubProfile": "GitHub Profile"
+    "githubProfile": "laureenbdev",
+    "cssbattle": "CSSBattle",
+    "cssbattleProfile": "@mei_",
+    "codewars": "Codewars",
+    "codewarsProfile": "meimei_"
   },
   "footer": {
     "rights": "All rights reserved."
