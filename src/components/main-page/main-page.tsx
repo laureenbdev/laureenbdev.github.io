@@ -43,6 +43,7 @@ const MainPage: React.FC = () => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
+                        animatedObserver.unobserve(entry.target);
                     }
                 });
             },
@@ -51,6 +52,12 @@ const MainPage: React.FC = () => {
                 rootMargin: '0px 0px -50px 0px'
             }
         );
+
+        const observeAnimatedElements = () => {
+            document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach((el) => {
+                animatedObserver.observe(el);
+            });
+        };
 
         // Attendre que les éléments soient rendus
         setTimeout(() => {
@@ -61,14 +68,22 @@ const MainPage: React.FC = () => {
                 }
             });
 
-            // Observer les éléments animables
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach((el) => animatedObserver.observe(el));
+            observeAnimatedElements();
         }, 100);
+
+        const mutationObserver = new MutationObserver(() => {
+            observeAnimatedElements();
+        });
+
+        const mainContent = document.querySelector('.main-content');
+        if (mainContent) {
+            mutationObserver.observe(mainContent, { childList: true, subtree: true });
+        }
 
         return () => {
             observer.disconnect();
             animatedObserver.disconnect();
+            mutationObserver.disconnect();
         };
     }, []);
 

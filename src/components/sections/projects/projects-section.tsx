@@ -90,7 +90,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                                     <div 
                                         key={index} 
                                         className="project-card animate-on-scroll"
-                                        style={{ animationDelay: `${index * 0.1}s` }}
+                                        style={{ transitionDelay: `${index * 0.1}s` }}
                                     >
                                         {firstImage && (
                                             <div 

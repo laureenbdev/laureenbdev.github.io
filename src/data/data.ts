@@ -17,8 +17,11 @@ export interface Skill {
   items: string[];
 }
 
+export type ExperienceType = 'work' | 'education' | 'association';
+
 export interface Experience {
   id: string;
+  type: ExperienceType;
   titleKey: string;
   companyKey: string;
   startDateKey: string;
@@ -154,20 +157,8 @@ export const skillsData: Skill[] = [
 
 export const experienceData: Experience[] = [
   {
-    id: "1",
-    titleKey: "experience.list.exp1.title",
-    companyKey: "experience.list.exp1.company",
-    startDateKey: "experience.list.exp1.startDate",
-    endDateKey: "experience.list.exp1.endDate",
-    descriptionKeys: [
-      "experience.list.exp1.description.1",
-      "experience.list.exp1.description.2"
-    ],
-    technologies: ["HTML", "CSS"],
-    image: "/img/exp/iut2.png"
-  },
-  {
     id: "2",
+    type: "work",
     titleKey: "experience.list.exp2.title",
     companyKey: "experience.list.exp2.company",
     startDateKey: "experience.list.exp2.startDate",
@@ -181,7 +172,36 @@ export const experienceData: Experience[] = [
     image: "/img/exp/eticeo.png"
   },
   {
+    id: "1",
+    type: "work",
+    titleKey: "experience.list.exp1.title",
+    companyKey: "experience.list.exp1.company",
+    startDateKey: "experience.list.exp1.startDate",
+    endDateKey: "experience.list.exp1.endDate",
+    descriptionKeys: [
+      "experience.list.exp1.description.1",
+      "experience.list.exp1.description.2"
+    ],
+    technologies: ["HTML", "CSS"],
+    image: "/img/exp/iut2.png"
+  },
+  {
+    id: "7",
+    type: "association",
+    titleKey: "experience.list.exp7.title",
+    companyKey: "experience.list.exp7.company",
+    startDateKey: "experience.list.exp7.startDate",
+    endDateKey: "experience.list.exp7.endDate",
+    descriptionKeys: [
+      "experience.list.exp7.description.1",
+      "experience.list.exp7.description.2"
+    ],
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/img/exp/prologin.webp"
+  },
+  {
     id: "3",
+    type: "education",
     titleKey: "experience.list.exp3.title",
     companyKey: "experience.list.exp3.company",
     startDateKey: "experience.list.exp3.startDate",
@@ -194,6 +214,7 @@ export const experienceData: Experience[] = [
   },
   {
     id: "4",
+    type: "work",
     titleKey: "experience.list.exp4.title",
     companyKey: "experience.list.exp4.company",
     startDateKey: "experience.list.exp4.startDate",
@@ -206,6 +227,7 @@ export const experienceData: Experience[] = [
   },
   {
     id: "5",
+    type: "work",
     titleKey: "experience.list.exp5.title",
     companyKey: "experience.list.exp5.company",
     startDateKey: "experience.list.exp5.startDate",
@@ -218,6 +240,7 @@ export const experienceData: Experience[] = [
   },
   {
     id: "6",
+    type: "education",
     titleKey: "experience.list.exp6.title",
     companyKey: "experience.list.exp6.company",
     startDateKey: "experience.list.exp6.startDate",

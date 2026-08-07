@@ -11,6 +11,14 @@
       line-height: 1.9;
       color: var(--color-text);
       margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .contact-links {
@@ -25,7 +33,18 @@
         padding: 1.5rem 0;
         border-bottom: 1px solid var(--color-stone);
         text-decoration: none;
-        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease,
+          border-bottom-color 0.3s ease,
+          padding-left 0.3s ease;
+
+        &.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
 
         &:hover {
           border-bottom-color: var(--color-accent-pop);
@@ -52,4 +71,3 @@
     }
   }
 }
-

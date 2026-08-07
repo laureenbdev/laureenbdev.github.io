@@ -5,6 +5,19 @@
   .about-content {
     max-width: 900px;
 
+    .about-name,
+    .about-title,
+    .about-bio p {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+
+      &.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .about-name {
       font-family: var(--font-primary);
       font-size: 4.5rem;
@@ -47,4 +60,3 @@
     letter-spacing: 3px;
   }
 }
-

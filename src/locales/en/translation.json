@@ -95,7 +95,23 @@
   },
   "experience": {
     "now": "today",
+    "current": "Ongoing",
+    "types": {
+      "work": "Experience",
+      "education": "Education",
+      "association": "Association"
+    },
     "list": {
+      "exp7": {
+        "title": "Prologin Association Member",
+        "company": "Prologin - Girls Can Code!",
+        "startDate": "Feb. 2026",
+        "endDate": "now",
+        "description": {
+          "1": "Mentoring and running Girls Can Code! workshops for middle and high school girls to introduce them to programming and promote gender diversity in tech.",
+          "2": "Design, development, and visual styling of web interfaces"
+        }
+      },
       "exp1": {
         "title": "Adjunct Lecturer in Web Interface Development",
         "company": "IUT2 Grenoble, Computer Science Department - Grenoble (38)",

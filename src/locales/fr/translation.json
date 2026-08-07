@@ -95,7 +95,23 @@
   },
   "experience": {
     "now": "aujourd'hui",
+    "current": "En cours",
+    "types": {
+      "work": "Expérience",
+      "education": "Formation",
+      "association": "Association"
+    },
     "list": {
+      "exp7": {
+        "title": "Membre association Prologin",
+        "company": "Prologin - Girls Can Code!",
+        "startDate": "févr. 2026",
+        "endDate": "now",
+        "description": {
+          "1": "Encadrement et animation des stages Girls Can Code!, destinés à des collégiennes et lycéennes pour leur faire découvrir la programmation et promouvoir la mixité dans l'informatique.",
+          "2": "Conception, développement et habillage graphique d'interfaces web"
+        }
+      },
       "exp1": {
         "title": "Enseignante vacataire en Développement d'interfaces web",
         "company": "IUT2 Grenoble, Département Informatique - Grenoble (38)",

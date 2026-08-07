@@ -10,6 +10,34 @@ interface ContactSectionProps {
 const ContactSection: React.FC<ContactSectionProps> = ({ sectionRef }) => {
     const { t } = useTranslation();
 
+    const links = [
+        {
+            key: 'email',
+            href: `mailto:${contactData.email}`,
+            label: t('contact.email'),
+            value: contactData.email,
+            external: false,
+        },
+        ...(contactData.linkedin
+            ? [{
+                key: 'linkedin',
+                href: contactData.linkedin,
+                label: t('contact.linkedin'),
+                value: t('contact.linkedinProfile'),
+                external: true,
+            }]
+            : []),
+        ...(contactData.github
+            ? [{
+                key: 'github',
+                href: contactData.github,
+                label: t('contact.github'),
+                value: t('contact.githubProfile'),
+                external: true,
+            }]
+            : []),
+    ];
+
     return (
         <section 
             id="contact" 
@@ -23,26 +51,29 @@ const ContactSection: React.FC<ContactSectionProps> = ({ sectionRef }) => {
                     <h2 className="section-title">{t('sections.contact')}</h2>
                 </div>
                 <div className="contact-content">
-                    <p className="contact-intro">
-                        {t('contact.intro')}
-                    </p>
+                    {t('contact.intro') && (
+                        <p
+                            className="contact-intro animate-on-scroll"
+                            style={{ transitionDelay: '0.05s' }}
+                        >
+                            {t('contact.intro')}
+                        </p>
+                    )}
                     <div className="contact-links">
-                        <a href={`mailto:${contactData.email}`} className="contact-link">
-                            <span className="contact-link-label">{t('contact.email')}</span>
-                            <span className="contact-link-value">{contactData.email}</span>
-                        </a>
-                        {contactData.linkedin && (
-                            <a href={contactData.linkedin} target="_blank" rel="noopener noreferrer" className="contact-link">
-                                <span className="contact-link-label">{t('contact.linkedin')}</span>
-                                <span className="contact-link-value">{t('contact.linkedinProfile')}</span>
+                        {links.map((link, index) => (
+                            <a
+                                key={link.key}
+                                href={link.href}
+                                className="contact-link animate-on-scroll"
+                                style={{ transitionDelay: `${0.1 + index * 0.1}s` }}
+                                {...(link.external
+                                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                                    : {})}
+                            >
+                                <span className="contact-link-label">{link.label}</span>
+                                <span className="contact-link-value">{link.value}</span>
                             </a>
-                        )}
-                        {contactData.github && (
-                            <a href={contactData.github} target="_blank" rel="noopener noreferrer" className="contact-link">
-                                <span className="contact-link-label">{t('contact.github')}</span>
-                                <span className="contact-link-value">{t('contact.githubProfile')}</span>
-                            </a>
-                        )}
+                        ))}
                     </div>
                 </div>
             </div>
@@ -51,4 +82,3 @@ const ContactSection: React.FC<ContactSectionProps> = ({ sectionRef }) => {
 };
 
 export default ContactSection;
-

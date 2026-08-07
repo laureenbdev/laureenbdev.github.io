@@ -20,11 +20,22 @@ const AboutSection: React.FC<AboutSectionProps> = ({ sectionRef }) => {
             <div className="section-container">
                 <div className="about-content">
                     <div className="about-text">
-                        <h1 className="about-name">{aboutData.name}</h1>
-                        <p className="about-title">{t(aboutData.titleKey)}</p>
+                        <h1 className="about-name animate-on-scroll">{aboutData.name}</h1>
+                        <p
+                            className="about-title animate-on-scroll"
+                            style={{ transitionDelay: '0.1s' }}
+                        >
+                            {t(aboutData.titleKey)}
+                        </p>
                         <div className="about-bio">
                             {aboutData.bioKeys.map((key, index) => (
-                                <p key={index}>{t(key)}</p>
+                                <p
+                                    key={index}
+                                    className="animate-on-scroll"
+                                    style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
+                                >
+                                    {t(key)}
+                                </p>
                             ))}
                         </div>
                     </div>
@@ -35,4 +46,3 @@ const AboutSection: React.FC<AboutSectionProps> = ({ sectionRef }) => {
 };
 
 export default AboutSection;
-
