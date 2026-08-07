@@ -43,7 +43,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         const cards = scrollRef.current?.querySelectorAll('.project-card');
         cards?.forEach((card) => {
             const el = card as HTMLElement;
-            el.style.transitionDelay = '0s';
+            el.style.setProperty('--appear-delay', '0s');
             el.classList.remove('visible');
         });
     }, []);
@@ -53,7 +53,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         cards?.forEach((card, index) => {
             const el = card as HTMLElement;
             el.classList.remove('visible');
-            el.style.transitionDelay = `${index * 0.08}s`;
+            el.style.setProperty('--appear-delay', `${index * 0.08}s`);
         });
 
         requestAnimationFrame(() => {
@@ -92,7 +92,6 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         changeFilter(() => setSelectedCategory(category));
     };
 
-    // Première apparition au scroll dans la section
     useEffect(() => {
         const section = sectionElRef.current;
         if (!section || hasRevealed) return;
@@ -145,28 +144,34 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                     </div>
 
                     <div className="projects-filters">
-                        <div className="filter-group">
-                            <div className="filter-tabs">
+                        <div className="filter-row">
+                            <span className="filter-label">{t('projects.filters.typeLabel')}</span>
+                            <div className="filter-tabs" role="group" aria-label={t('projects.filters.typeLabel')}>
                                 {projectTypes.map((type) => (
                                     <button
                                         key={type}
+                                        type="button"
                                         className={`filter-tab ${selectedType === type ? 'active' : ''}`}
                                         onClick={() => handleTypeChange(type)}
                                         disabled={isFiltering}
+                                        aria-pressed={selectedType === type}
                                     >
                                         {t(`projects.filters.type.${type}`)}
                                     </button>
                                 ))}
                             </div>
                         </div>
-                        <div className="filter-group">
-                            <div className="filter-tabs">
+                        <div className="filter-row">
+                            <span className="filter-label">{t('projects.filters.categoryLabel')}</span>
+                            <div className="filter-tabs" role="group" aria-label={t('projects.filters.categoryLabel')}>
                                 {projectCategories.map((category) => (
                                     <button
                                         key={category}
-                                        className={`filter-tab ${selectedCategory === category ? 'active' : ''}`}
+                                        type="button"
+                                        className={`filter-tab filter-tab--category ${selectedCategory === category ? 'active' : ''}`}
                                         onClick={() => handleCategoryChange(category)}
                                         disabled={isFiltering}
+                                        aria-pressed={selectedCategory === category}
                                     >
                                         {t(`projects.filters.category.${category}`)}
                                     </button>
@@ -180,47 +185,61 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                         data-manual-reveal="true"
                     >
                         <div className="projects-scroll" ref={scrollRef}>
-                            {filteredProjects.map((project, index) => {
-                                const firstImage = project.images && project.images.length > 0 
-                                    ? `/img/projects/${project.images[0]}.png` 
-                                    : null;
-                                
-                                return (
-                                    <div 
-                                        key={project.titleKey} 
-                                        className="project-card animate-on-scroll"
-                                        style={{ transitionDelay: `${index * 0.08}s` }}
-                                    >
-                                        {firstImage && (
-                                            <div 
-                                                className="project-image-wrapper"
-                                                onClick={() => openModal(project)}
-                                            >
-                                                <img 
-                                                    src={firstImage} 
-                                                    alt={t(project.titleKey)}
-                                                    className="project-image"
-                                                />
-                                            </div>
-                                        )}
-                                        <div className="project-header">
-                                            <h3 className="project-title">{t(project.titleKey)}</h3>
-                                        </div>
-                                        <span className="project-date">{project.date}</span>
-                                        <p className="project-description">{t(project.descriptionShortKey)}</p>
-                                        <div className="project-categories">
-                                            <span className="category-tag">{t(`projects.filters.type.${project.type}`)}</span>
-                                            <span className="category-tag">{t(`projects.filters.category.${project.category}`)}</span>
-                                        </div>
-                                        <button 
-                                            className="project-view-more"
+                            {filteredProjects.length === 0 ? (
+                                <p className="projects-empty">{t('projects.empty')}</p>
+                            ) : (
+                                filteredProjects.map((project, index) => {
+                                    const firstImage = project.images && project.images.length > 0 
+                                        ? `/img/projects/${project.images[0]}.png` 
+                                        : null;
+                                    const shortDesc = t(project.descriptionShortKey);
+                                    
+                                    return (
+                                        <article 
+                                            key={project.titleKey} 
+                                            className="project-card animate-on-scroll"
+                                            style={{ ['--appear-delay' as string]: `${index * 0.08}s` }}
                                             onClick={() => openModal(project)}
                                         >
-                                            {t('projects.viewMore')}
-                                        </button>
-                                    </div>
-                                );
-                            })}
+                                            <div className="project-image-wrapper">
+                                                {firstImage ? (
+                                                    <img 
+                                                        src={firstImage} 
+                                                        alt=""
+                                                        className="project-image"
+                                                    />
+                                                ) : (
+                                                    <div className="project-image-placeholder" />
+                                                )}
+                                            </div>
+
+                                            <div className="project-body">
+                                                <div className="project-tags">
+                                                    <span className="project-tag project-tag--type">
+                                                        {t(`projects.filters.type.${project.type}`)}
+                                                    </span>
+                                                    <span className="project-tag project-tag--category">
+                                                        {t(`projects.filters.category.${project.category}`)}
+                                                    </span>
+                                                </div>
+
+                                                <div className="project-heading">
+                                                    <h3 className="project-title">{t(project.titleKey)}</h3>
+                                                    <span className="project-date">{project.date}</span>
+                                                </div>
+
+                                                {shortDesc && (
+                                                    <p className="project-description">{shortDesc}</p>
+                                                )}
+
+                                                <span className="project-view-more">
+                                                    {t('projects.viewMore')}
+                                                </span>
+                                            </div>
+                                        </article>
+                                    );
+                                })
+                            )}
                         </div>
                     </div>
                 </div>

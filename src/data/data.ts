@@ -10,6 +10,7 @@ export interface Project {
   category: ProjectCategory;
   date: string;
   keywords: string[];
+  link?: string;
 }
 
 export interface Skill {
@@ -67,6 +68,7 @@ export const projects: Project[] = [
     category: "web",
     date: "07-2025",
     keywords: ['PHP', 'Moodle', 'JavaScript', 'HTML', 'CSS'],
+    link: "https://moodle.org/plugins/block_key_figures",
   },
   {
     titleKey: "projects.list.project2.title",
@@ -107,6 +109,7 @@ export const projects: Project[] = [
     category: "web",
     date: "2023",
     keywords: ['HTML', 'CSS', 'JavaScript'],
+    link: "https://www.ethan-ehrler.fr/chatjsuispt/",
   },
   {
     titleKey: "projects.list.project6.title",

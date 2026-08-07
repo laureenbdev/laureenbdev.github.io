@@ -25,10 +25,13 @@
   "projects": {
     "viewProject": "Voir le projet",
     "viewMore": "Voir plus de détails",
+    "empty": "Aucun projet pour ces filtres.",
     "github": "GitHub",
     "keywords": "Mots-clés",
     "filters": {
       "all": "Tout",
+      "typeLabel": "Type",
+      "categoryLabel": "Catégorie",
       "type": {
         "all": "Tout",
         "personal": "Personnel",
@@ -47,8 +50,7 @@
       "project1": {
         "title": "Key figures - Plugin bloc Moodle",
         "descriptionShort": "",
-        "description": "Dans le contexte de mon travail dans l'entreprise Eticeo, j'ai l'occasion de développer de nombreux plugins utilisés sur nos plateformes Moodle.<br><br>Le plugin block_key_figures est le premier de ces plugins que j'ai publié pour le rendre accessible à la communauté. Le plugin est assez simple, il permet de visualiser des chiffres clés définis en dur dans les paramètres de l'instance du bloc. Par exemple, il peut être utilisé sur les pages d'accueil des plateformes pour montrer certaines données aux visiteurs et les motiver à s'inscrire aux formations.<br><br>Avant de publier ce plugin, il a fallut lui apporter quelques modifications pour qu'il puisse être validés par les modérateurs Moodle. Ces modifications comprennent : <ul><li>Refactorisation et simplification du plugin</li><li>Nettoyage du code</li><li>Ajout de documentation</li><li>Modification pour suivre les directives Moodle concernant notamment la syntaxe, la qualité du code, la sécurité, et la compatibilité avec les autres composants</li></ul>",
-        "link": "https://moodle.org/plugins/block_key_figures"
+        "description": "Dans le contexte de mon travail dans l'entreprise Eticeo, j'ai l'occasion de développer de nombreux plugins utilisés sur nos plateformes Moodle.<br><br>Le plugin block_key_figures est le premier de ces plugins que j'ai publié pour le rendre accessible à la communauté. Le plugin est assez simple, il permet de visualiser des chiffres clés définis en dur dans les paramètres de l'instance du bloc. Par exemple, il peut être utilisé sur les pages d'accueil des plateformes pour montrer certaines données aux visiteurs et les motiver à s'inscrire aux formations.<br><br>Avant de publier ce plugin, il a fallut lui apporter quelques modifications pour qu'il puisse être validés par les modérateurs Moodle. Ces modifications comprennent : <ul><li>Refactorisation et simplification du plugin</li><li>Nettoyage du code</li><li>Ajout de documentation</li><li>Modification pour suivre les directives Moodle concernant notamment la syntaxe, la qualité du code, la sécurité, et la compatibilité avec les autres composants</li></ul>"
       },
       "project2": {
         "title": "GADI - Gestion Administrative du Département Informatiques",
@@ -68,8 +70,7 @@
       "project5": {
         "title": "Chatjsuispt - Chatbot IA parodique",
         "descriptionShort": "",
-        "description": "Ce projet est initialement né d'une blague avec un ami avant que nous décidions de le réaliser réellement.<br />Chatjsuispt est un <b>chatbot IA</b> qui a pour objectif de parodier le chatbot ChatGPT de OpenAI, et ses réponses parfois incohérentes. Son objectif est, contrairement à une IA classique, de ne répondre que des choses absurdes et incohérentes.<br /><br />Ce projet utilise <b>HTML, CSS et JavaScript</b> et intègre plusieurs méthodes de génération de réponses. Certaines sont prédéfinies lorsque certains mots sont détéctés, d'autres prennent des réponses aléatoires dans une liste de réponses prédéfinies, et d'autres encore utilisent une méthode de génération de phrases mal construites.",
-        "link": "https://www.ethan-ehrler.fr/chatjsuispt/"
+        "description": "Ce projet est initialement né d'une blague avec un ami avant que nous décidions de le réaliser réellement.<br />Chatjsuispt est un <b>chatbot IA</b> qui a pour objectif de parodier le chatbot ChatGPT de OpenAI, et ses réponses parfois incohérentes. Son objectif est, contrairement à une IA classique, de ne répondre que des choses absurdes et incohérentes.<br /><br />Ce projet utilise <b>HTML, CSS et JavaScript</b> et intègre plusieurs méthodes de génération de réponses. Certaines sont prédéfinies lorsque certains mots sont détéctés, d'autres prennent des réponses aléatoires dans une liste de réponses prédéfinies, et d'autres encore utilisent une méthode de génération de phrases mal construites."
       },
       "project6": {
         "title": "Hopack",

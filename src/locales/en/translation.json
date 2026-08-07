@@ -25,10 +25,13 @@
   "projects": {
     "viewProject": "View project",
     "viewMore": "See more details",
+    "empty": "No projects match these filters.",
     "github": "GitHub",
     "keywords": "Keywords",
     "filters": {
       "all": "All",
+      "typeLabel": "Type",
+      "categoryLabel": "Category",
       "type": {
         "all": "All",
         "personal": "Personal",
@@ -47,8 +50,7 @@
       "project1": {
         "title": "Key figures - Moodle block plugin",
         "descriptionShort": "",
-        "description": "As part of my work at Eticeo, I develop many plugins used on our Moodle platforms.<br><br>The block_key_figures plugin is the first one I published to make it available to the community. The plugin is rather simple: it allows administrators to display key figures defined in the block instance settings. For example, it can be used on homepage dashboards to show data to visitors and encourage them to enroll in courses.<br><br>Before publishing this plugin, I had to make several changes to meet Moodle's validation requirements. These changes included: <ul><li>Refactoring and simplifying the plugin</li><li>Code cleanup</li><li>Adding documentation</li><li>Modifications to follow Moodle guidelines, especially regarding syntax, code quality, security, and compatibility with other components</li></ul>",
-        "link": "https://moodle.org/plugins/block_key_figures"
+        "description": "As part of my work at Eticeo, I develop many plugins used on our Moodle platforms.<br><br>The block_key_figures plugin is the first one I published to make it available to the community. The plugin is rather simple: it allows administrators to display key figures defined in the block instance settings. For example, it can be used on homepage dashboards to show data to visitors and encourage them to enroll in courses.<br><br>Before publishing this plugin, I had to make several changes to meet Moodle's validation requirements. These changes included: <ul><li>Refactoring and simplifying the plugin</li><li>Code cleanup</li><li>Adding documentation</li><li>Modifications to follow Moodle guidelines, especially regarding syntax, code quality, security, and compatibility with other components</li></ul>"
       },
       "project2": {
         "title": "GADI - Administrative Management of the Computer Science Department",
@@ -68,8 +70,7 @@
       "project5": {
         "title": "Chatjsuispt - Parody AI chatbot",
         "descriptionShort": "",
-        "description": "This project started as a joke with a friend before we decided to actually develop it.<br />Chatjsuispt is a <b>parody AI chatbot</b> mocking ChatGPT and its occasional incoherent answers. The bot intentionally responds with absurd and nonsensical messages.<br /><br />It uses <b>HTML, CSS, and JavaScript</b> and combines several answer-generation methods: predefined responses based on detected keywords, random responses from a list, and a generator that produces poorly constructed sentences.",
-        "link": "https://www.ethan-ehrler.fr/chatjsuispt/"
+        "description": "This project started as a joke with a friend before we decided to actually develop it.<br />Chatjsuispt is a <b>parody AI chatbot</b> mocking ChatGPT and its occasional incoherent answers. The bot intentionally responds with absurd and nonsensical messages.<br /><br />It uses <b>HTML, CSS, and JavaScript</b> and combines several answer-generation methods: predefined responses based on detected keywords, random responses from a list, and a generator that produces poorly constructed sentences."
       },
       "project6": {
         "title": "Hopack",
