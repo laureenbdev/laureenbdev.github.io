@@ -6,10 +6,10 @@
   line-height: 1.7;
 }
 
-// Sections communes
+// Shared section styles
 .section {
   min-height: 100dvh;
-  padding: 8rem 0;
+  padding: 5rem 0;
   position: relative;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
@@ -68,7 +68,7 @@
   }
 }
 
-// Tags de technologies (utilisé dans plusieurs sections)
+// Technology tags (used across multiple sections)
 .tech-tag {
   display: inline-block;
   padding: 0.4rem 1rem;
@@ -99,5 +99,11 @@
         font-size: 2rem;
       }
     }
+  }
+}
+
+@media (max-width: 640px) {
+  .section .section-header .section-title {
+    font-size: 1.6rem;
   }
 }

@@ -28,9 +28,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
     return (
         <header className="header">
             <nav className="nav">
-                <div className="nav-logo">
+                <button
+                    type="button"
+                    className="nav-logo"
+                    onClick={() => handleNavClick('about')}
+                    aria-label={t('nav.about')}
+                >
                     <span className="logo-text">{aboutData.name.split(' ').map(n => n[0]).join('')}</span>
-                </div>
+                </button>
                 <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
                     <li>
                         <button 

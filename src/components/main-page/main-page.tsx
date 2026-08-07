@@ -14,7 +14,7 @@ const MainPage: React.FC = () => {
     const sectionsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
     useEffect(() => {
-        // Intersection Observer pour détecter les sections visibles
+        // Intersection Observer to detect visible sections
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -37,7 +37,7 @@ const MainPage: React.FC = () => {
             }
         );
 
-        // Observer pour les éléments animables
+        // Observer for animatable elements
         const animatedObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
@@ -60,9 +60,9 @@ const MainPage: React.FC = () => {
             });
         };
 
-        // Attendre que les éléments soient rendus
+        // Wait until elements are rendered
         setTimeout(() => {
-            // Observer les sections principales
+            // Observe main sections
             Object.values(sectionsRef.current).forEach((element) => {
                 if (element) {
                     observer.observe(element);
@@ -95,13 +95,13 @@ const MainPage: React.FC = () => {
         const animated = section.querySelectorAll('.animate-on-scroll');
         animated.forEach((el) => {
             const htmlEl = el as HTMLElement;
-            // Évite que le délai d'apparition s'applique aussi aux hovers
+            // Prevent appear delay from also applying to hover transitions
             htmlEl.style.transitionDelay = '';
             htmlEl.style.setProperty('--appear-delay', '0s');
             htmlEl.classList.remove('visible');
         });
 
-        // Forcer le reflow pour relancer les transitions
+        // Force reflow to restart transitions
         void section.offsetHeight;
 
         animated.forEach((el, index) => {

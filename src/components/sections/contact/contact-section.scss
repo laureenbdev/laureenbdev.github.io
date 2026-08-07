@@ -113,3 +113,16 @@
     gap: 2.75rem;
   }
 }
+
+@media (max-width: 420px) {
+  .section-contact .contact-content .contact-links .contact-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+
+    .contact-link-value {
+      text-align: left;
+      font-size: 0.95rem;
+    }
+  }
+}

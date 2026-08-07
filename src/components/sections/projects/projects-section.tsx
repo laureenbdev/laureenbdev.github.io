@@ -9,6 +9,7 @@ interface ProjectsSectionProps {
 }
 
 const HIDE_DURATION_MS = 320;
+const SCROLL_EPSILON = 2;
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
     const { t } = useTranslation();
@@ -18,8 +19,11 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isFiltering, setIsFiltering] = useState(false);
     const [hasRevealed, setHasRevealed] = useState(false);
+    const [canScrollLeft, setCanScrollLeft] = useState(false);
+    const [canScrollRight, setCanScrollRight] = useState(false);
 
     const sectionElRef = useRef<HTMLDivElement | null>(null);
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);
     const filterTimeoutRef = useRef<number | null>(null);
 
@@ -38,6 +42,32 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         sectionElRef.current = el;
         sectionRef(el);
     }, [sectionRef]);
+
+    const updateScrollArrows = useCallback(() => {
+        const container = scrollContainerRef.current;
+        if (!container) {
+            setCanScrollLeft(false);
+            setCanScrollRight(false);
+            return;
+        }
+
+        const { scrollLeft, scrollWidth, clientWidth } = container;
+        setCanScrollLeft(scrollLeft > SCROLL_EPSILON);
+        setCanScrollRight(scrollLeft + clientWidth < scrollWidth - SCROLL_EPSILON);
+    }, []);
+
+    const scrollByCard = useCallback((direction: 'left' | 'right') => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        const card = container.querySelector('.project-card') as HTMLElement | null;
+        const gap = 24;
+        const amount = (card?.offsetWidth ?? 320) + gap;
+        container.scrollBy({
+            left: direction === 'left' ? -amount : amount,
+            behavior: 'smooth',
+        });
+    }, []);
 
     const hideCards = useCallback(() => {
         const cards = scrollRef.current?.querySelectorAll('.project-card');
@@ -59,9 +89,10 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 cards?.forEach((card) => card.classList.add('visible'));
+                updateScrollArrows();
             });
         });
-    }, []);
+    }, [updateScrollArrows]);
 
     const changeFilter = useCallback((apply: () => void) => {
         if (filterTimeoutRef.current) {
@@ -78,9 +109,11 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
             window.setTimeout(() => {
                 revealCards();
                 setHasRevealed(true);
+                scrollContainerRef.current?.scrollTo({ left: 0 });
+                updateScrollArrows();
             }, 40);
         }, HIDE_DURATION_MS);
-    }, [hideCards, revealCards]);
+    }, [hideCards, revealCards, updateScrollArrows]);
 
     const handleTypeChange = (type: ProjectType) => {
         if (type === selectedType || isFiltering) return;
@@ -110,6 +143,27 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         observer.observe(section);
         return () => observer.disconnect();
     }, [hasRevealed, revealCards]);
+
+    useEffect(() => {
+        const container = scrollContainerRef.current;
+        if (!container) return;
+
+        updateScrollArrows();
+        container.addEventListener('scroll', updateScrollArrows, { passive: true });
+        window.addEventListener('resize', updateScrollArrows);
+
+        const resizeObserver = new ResizeObserver(() => updateScrollArrows());
+        resizeObserver.observe(container);
+        if (scrollRef.current) {
+            resizeObserver.observe(scrollRef.current);
+        }
+
+        return () => {
+            container.removeEventListener('scroll', updateScrollArrows);
+            window.removeEventListener('resize', updateScrollArrows);
+            resizeObserver.disconnect();
+        };
+    }, [filteredProjects, updateScrollArrows]);
 
     useEffect(() => {
         return () => {
@@ -180,67 +234,92 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
                         </div>
                     </div>
 
-                    <div
-                        className={`projects-scroll-container${isFiltering ? ' is-filtering' : ''}`}
-                        data-manual-reveal="true"
-                    >
-                        <div className="projects-scroll" ref={scrollRef}>
-                            {filteredProjects.length === 0 ? (
-                                <p className="projects-empty">{t('projects.empty')}</p>
-                            ) : (
-                                filteredProjects.map((project, index) => {
-                                    const firstImage = project.images && project.images.length > 0 
-                                        ? `/img/projects/${project.images[0]}.png` 
-                                        : null;
-                                    const shortDesc = t(project.descriptionShortKey);
-                                    
-                                    return (
-                                        <article 
-                                            key={project.titleKey} 
-                                            className="project-card animate-on-scroll"
-                                            style={{ ['--appear-delay' as string]: `${index * 0.08}s` }}
-                                            onClick={() => openModal(project)}
-                                        >
-                                            <div className="project-image-wrapper">
-                                                {firstImage ? (
-                                                    <img 
-                                                        src={firstImage} 
-                                                        alt=""
-                                                        className="project-image"
-                                                    />
-                                                ) : (
-                                                    <div className="project-image-placeholder" />
-                                                )}
-                                            </div>
+                    <div className="projects-carousel">
+                        {canScrollLeft && (
+                            <button
+                                type="button"
+                                className="projects-scroll-arrow projects-scroll-arrow--left"
+                                onClick={() => scrollByCard('left')}
+                                aria-label="Scroll left"
+                            >
+                                &#10094;
+                            </button>
+                        )}
 
-                                            <div className="project-body">
-                                                <div className="project-tags">
-                                                    <span className="project-tag project-tag--type">
-                                                        {t(`projects.filters.type.${project.type}`)}
-                                                    </span>
-                                                    <span className="project-tag project-tag--category">
-                                                        {t(`projects.filters.category.${project.category}`)}
-                                                    </span>
+                        <div
+                            className={`projects-scroll-container${isFiltering ? ' is-filtering' : ''}`}
+                            data-manual-reveal="true"
+                            ref={scrollContainerRef}
+                        >
+                            <div className="projects-scroll" ref={scrollRef}>
+                                {filteredProjects.length === 0 ? (
+                                    <p className="projects-empty">{t('projects.empty')}</p>
+                                ) : (
+                                    filteredProjects.map((project, index) => {
+                                        const firstImage = project.images && project.images.length > 0 
+                                            ? `/img/projects/${project.images[0]}.png` 
+                                            : null;
+                                        const shortDesc = t(project.descriptionShortKey);
+                                        
+                                        return (
+                                            <article 
+                                                key={project.titleKey} 
+                                                className="project-card animate-on-scroll"
+                                                style={{ ['--appear-delay' as string]: `${index * 0.08}s` }}
+                                                onClick={() => openModal(project)}
+                                            >
+                                                <div className="project-image-wrapper">
+                                                    {firstImage ? (
+                                                        <img 
+                                                            src={firstImage} 
+                                                            alt=""
+                                                            className="project-image"
+                                                        />
+                                                    ) : (
+                                                        <div className="project-image-placeholder" />
+                                                    )}
                                                 </div>
 
-                                                <div className="project-heading">
-                                                    <h3 className="project-title">{t(project.titleKey)}</h3>
-                                                    <span className="project-date">{project.date}</span>
+                                                <div className="project-body">
+                                                    <div className="project-tags">
+                                                        <span className="project-tag project-tag--type">
+                                                            {t(`projects.filters.type.${project.type}`)}
+                                                        </span>
+                                                        <span className="project-tag project-tag--category">
+                                                            {t(`projects.filters.category.${project.category}`)}
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="project-heading">
+                                                        <h3 className="project-title">{t(project.titleKey)}</h3>
+                                                        <span className="project-date">{project.date}</span>
+                                                    </div>
+
+                                                    {shortDesc && (
+                                                        <p className="project-description">{shortDesc}</p>
+                                                    )}
+
+                                                    <span className="project-view-more">
+                                                        {t('projects.viewMore')}
+                                                    </span>
                                                 </div>
-
-                                                {shortDesc && (
-                                                    <p className="project-description">{shortDesc}</p>
-                                                )}
-
-                                                <span className="project-view-more">
-                                                    {t('projects.viewMore')}
-                                                </span>
-                                            </div>
-                                        </article>
-                                    );
-                                })
-                            )}
+                                            </article>
+                                        );
+                                    })
+                                )}
+                            </div>
                         </div>
+
+                        {canScrollRight && (
+                            <button
+                                type="button"
+                                className="projects-scroll-arrow projects-scroll-arrow--right"
+                                onClick={() => scrollByCard('right')}
+                                aria-label="Scroll right"
+                            >
+                                &#10095;
+                            </button>
+                        )}
                     </div>
                 </div>
             </section>
