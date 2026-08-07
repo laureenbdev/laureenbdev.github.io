@@ -19,11 +19,12 @@
     "bio": {
       "paragraph1": "Actuellement développeuse web Full Stack pour l'entreprise Eticeo, je développe, maintient et mets à jour des plugins et des plateformes de formations personnalisées pour répondre aux besoins de clients dans de nombreux domaines.",
       "paragraph2": "Passionnée par le développement depuis de nombreuses années, j'ai obtenu un BUT Informatique en 2024 et j'ai pu avoir quelques expériences dans le domaine lors de stages.",
-      "paragraph3": "Vous pourrez retrouver sur ce portfolio différents projets sur lesquels j'ai pu travailler dans le cadre de mes études, de mon travail ou de mon temps libree."
+      "paragraph3": "Vous pourrez retrouver sur ce portfolio différents projets sur lesquels j'ai pu travailler dans le cadre de mes études, de mon travail ou de mon temps libre."
     }
   },
   "projects": {
     "viewProject": "Voir le projet",
+    "viewCode": "Voir le code",
     "viewMore": "Voir plus de détails",
     "empty": "Aucun projet pour ces filtres.",
     "github": "GitHub",
@@ -36,7 +37,8 @@
         "all": "Tout",
         "personal": "Personnel",
         "professional": "Professionnel",
-        "academic": "Universitaire"
+        "academic": "Universitaire",
+        "associative": "Associatif"
       },
       "category": {
         "all": "Tout",
@@ -81,6 +83,21 @@
         "title": "Hardis Group - Site internet de présentation d'une ESN",
         "descriptionShort": "",
         "description": "L'objectif de ce projet, réalisé en équipe de 3, était de réaliser un site vitrine de présentation d'une ESN (Entreprise de Services du Numérique) du secteur grenoblois. Il s'agit d'un des premiers sites internet que nous avons pu réaliser.<br /><br />Nous avons réalisé ce site en <b>HTML et CSS</b>."
+      },
+      "project8": {
+        "title": "Habillages graphiques de sites pour le concours Prologin",
+        "descriptionShort": "",
+        "description": "Dans le cadre de mon engagement associatif, j'ai eu l'occasion de concevoir l'<b>habillage graphique</b> des sites du concours <a href=\"https://prologin.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Prologin</a>.<br /><br />Le concours <a href=\"https://prologin.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Prologin</a> est une <b>compétition d'informatique</b> organisée par l'association <a href=\"https://prologin.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Prologin</a> à destination des jeunes. Un site web est mis à disposition des participants et, chaque année, son <b>identité visuelle</b> est entièrement repensée afin de s'accorder au thème choisi pour l'édition (décors, goodies, sujets des épreuves, etc.).<br /><br />J'ai participé aux habillages graphiques des éditions suivantes :<ul><li><b>Concours 2026</b> (capture 1 et 2)</li><li>D'autres éditions à venir</li></ul>"
+      },
+      "project9": {
+        "title": "Dépôt de solutions CSSBattle",
+        "descriptionShort": "",
+        "description": "<a href=\"https://cssbattle.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">CSSBattle</a> est une plateforme proposant des défis consistant à reproduire une illustration uniquement avec du <b>HTML et du CSS</b>. Elle organise des <b>compétitions</b> limitées dans le temps avec un classement entre les participants, ainsi que des <b>daily battles</b> renouvelées chaque jour.<br /><br />J'y participe très régulièrement. Ces défis me permettent de m'entraîner à exploiter au mieux mes connaissances en CSS afin d'<b>optimiser</b> mes solutions, notamment en réduisant le nombre de caractères utilisés. C'est également l'occasion de découvrir de nouvelles propriétés CSS, d'explorer leurs usages et de mettre à profit l'aspect compétitif de la plateforme pour progresser continuellement.<br /><br />J'ai créé un <b>dépôt Git</b> regroupant l'ensemble de mes solutions, que j'alimente régulièrement au fil de mes participations.<br /><br />Ce dépôt me permet de conserver une trace de mes réalisations, de retrouver facilement mes scores et de partager mes solutions avec la communauté afin d'en discuter. Il m'arrive d'obtenir de bons classements, ce qui peut rendre ce partage pertinent.<br /><br />Le dépôt présente également les <b>plugins</b> que j'ai développés pour m'aider lors des défis, notamment des outils permettant de réduire le nombre de caractères de mes solutions et de faciliter leur optimisation."
+      },
+      "project10": {
+        "title": "Portfolio",
+        "descriptionShort": "",
+        "description": "Portfolio personnel présentant mon parcours, mes compétences et mes projets. Réalisé avec <b>React</b>, <b>TypeScript</b> et <b>SCSS</b>, avec une interface bilingue FR/EN."
       }
     }
   },

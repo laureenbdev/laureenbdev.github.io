@@ -24,6 +24,7 @@
   },
   "projects": {
     "viewProject": "View project",
+    "viewCode": "View code",
     "viewMore": "See more details",
     "empty": "No projects match these filters.",
     "github": "GitHub",
@@ -36,7 +37,8 @@
         "all": "All",
         "personal": "Personal",
         "professional": "Professional",
-        "academic": "Academic"
+        "academic": "Academic",
+        "associative": "Associative"
       },
       "category": {
         "all": "All",
@@ -81,6 +83,21 @@
         "title": "Hardis Group - Presentation website for an IT consulting company",
         "descriptionShort": "",
         "description": "This project, completed in a team of 3, involved building a presentation website for a Grenoble-based IT services company. It is one of the first websites we developed.<br /><br />We built it using <b>HTML and CSS</b>."
+      },
+      "project8": {
+        "title": "Graphic theming of websites for the Prologin contest",
+        "descriptionShort": "",
+        "description": "As part of my volunteer involvement, I had the opportunity to design the <b>graphic theming</b> of the <a href=\"https://prologin.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Prologin</a> contest websites.<br /><br />The <a href=\"https://prologin.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Prologin</a> contest is a <b>computer science competition</b> organized by the <a href=\"https://prologin.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Prologin</a> association for young people. A website is made available to participants and, each year, its <b>visual identity</b> is entirely redesigned to match the theme chosen for that edition (sets, merch, contest challenges, and more).<br /><br />I contributed to the graphic theming of the following editions:<ul><li><b>2026 Contest</b> (capture 1 and 2)</li><li>More editions to come</li></ul>"
+      },
+      "project9": {
+        "title": "CSSBattle solutions repository",
+        "descriptionShort": "",
+        "description": "<a href=\"https://cssbattle.dev/\" target=\"_blank\" rel=\"noopener noreferrer\">CSSBattle</a> is a platform with challenges that consist in recreating an illustration using only <b>HTML and CSS</b>. It runs time-limited <b>competitions</b> with a player ranking, as well as <b>daily battles</b> refreshed every day.<br /><br />I take part very regularly. These challenges help me practice and push my CSS skills further to <b>optimize</b> my solutions, especially by reducing the number of characters used. They are also a chance to discover new CSS properties, explore how they can be used, and leverage the competitive side of the platform to keep improving.<br /><br />I created a <b>Git repository</b> that gathers all my solutions, which I update regularly as I keep participating.<br /><br />This repository helps me keep a record of my work, easily find my scores, and share my solutions with the community for discussion. I sometimes achieve strong rankings, which can make that sharing especially useful.<br /><br />The repository also showcases the <b>plugins</b> I developed to help me during challenges, including tools to reduce the character count of my solutions and make optimization easier."
+      },
+      "project10": {
+        "title": "Portfolio",
+        "descriptionShort": "",
+        "description": "Personal portfolio presenting my background, skills, and projects. Built with <b>React</b>, <b>TypeScript</b>, and <b>SCSS</b>, with a bilingual FR/EN interface."
       }
     }
   },

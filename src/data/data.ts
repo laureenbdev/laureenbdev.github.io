@@ -1,4 +1,4 @@
-export type ProjectType = 'personal' | 'professional' | 'academic' | 'all';
+export type ProjectType = 'personal' | 'professional' | 'academic' | 'associative' | 'all';
 export type ProjectCategory = 'web' | 'application' | 'mobile' | 'game' | 'all';
 
 export interface Project {
@@ -11,6 +11,7 @@ export interface Project {
   date: string;
   keywords: string[];
   link?: string;
+  codeLink?: string;
 }
 
 export interface Skill {
@@ -60,6 +61,38 @@ export const aboutData: AboutData = {
 
 export const projects: Project[] = [
   {
+    titleKey: "projects.list.project9.title",
+    descriptionShortKey: "projects.list.project9.descriptionShort",
+    descriptionKey: "projects.list.project9.description",
+    images: ["cssbattle"],
+    type: "personal",
+    category: "web",
+    date: "07/2026 - now",
+    keywords: ['HTML', 'CSS', 'JS'],
+    link: "https://github.com/laureenbdev/cssbattle",
+  },
+  {
+    titleKey: "projects.list.project8.title",
+    descriptionShortKey: "projects.list.project8.descriptionShort",
+    descriptionKey: "projects.list.project8.description",
+    images: ["prolo2026", "prolo2026-2"],
+    type: "associative",
+    category: "web",
+    date: "05/2026 - now",
+    keywords: ['CSS'],
+  },
+  {
+    titleKey: "projects.list.project10.title",
+    descriptionShortKey: "projects.list.project10.descriptionShort",
+    descriptionKey: "projects.list.project10.description",
+    images: ["portfolio", "portfolio-2"],
+    type: "personal",
+    category: "web",
+    date: "11/2025 - now",
+    keywords: ['React', 'TypeScript', 'SCSS'],
+    codeLink: "https://github.com/laureenbdev/laureenbdev.github.io",
+  },
+  {
     titleKey: "projects.list.project1.title",
     descriptionShortKey: "projects.list.project1.descriptionShort",
     descriptionKey: "projects.list.project1.description",
@@ -69,6 +102,7 @@ export const projects: Project[] = [
     date: "07-2025",
     keywords: ['PHP', 'Moodle', 'JavaScript', 'HTML', 'CSS'],
     link: "https://moodle.org/plugins/block_key_figures",
+    codeLink: "https://github.com/Eticeo/moodle-block_key_figures",
   },
   {
     titleKey: "projects.list.project2.title",
@@ -89,6 +123,19 @@ export const projects: Project[] = [
     category: "game",
     date: "09/2023",
     keywords: ['Python', 'Pygame'],
+    codeLink: "https://github.com/Erlow38/gravity-bot",
+  },
+  {
+    titleKey: "projects.list.project5.title",
+    descriptionShortKey: "projects.list.project5.descriptionShort",
+    descriptionKey: "projects.list.project5.description",
+    images: ["chatjsuispt"],
+    type: "personal",
+    category: "web",
+    date: "09/2023",
+    keywords: ['HTML', 'CSS', 'JavaScript'],
+    link: "https://www.ethan-ehrler.fr/chatjsuispt/",
+    codeLink: "https://github.com/Erlow38/chatjsuispt",
   },
   {
     titleKey: "projects.list.project4.title",
@@ -99,17 +146,6 @@ export const projects: Project[] = [
     category: "web",
     date: "2023",
     keywords: ['HTML', 'CSS', 'JavaScript', 'PHP', 'SQLite'],
-  },
-  {
-    titleKey: "projects.list.project5.title",
-    descriptionShortKey: "projects.list.project5.descriptionShort",
-    descriptionKey: "projects.list.project5.description",
-    images: ["chatjsuispt"],
-    type: "personal",
-    category: "web",
-    date: "2023",
-    keywords: ['HTML', 'CSS', 'JavaScript'],
-    link: "https://www.ethan-ehrler.fr/chatjsuispt/",
   },
   {
     titleKey: "projects.list.project6.title",

@@ -26,7 +26,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             setDisplayedProject(project);
             setCurrentImageIndex(0);
             setIsMounted(true);
-            document.body.style.overflow = 'hidden';
 
             openFrame = window.requestAnimationFrame(() => {
                 openFrame = window.requestAnimationFrame(() => {
@@ -38,7 +37,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             closeTimeout = window.setTimeout(() => {
                 setIsMounted(false);
                 setDisplayedProject(null);
-                document.body.style.overflow = '';
             }, ANIMATION_MS);
         }
 
@@ -53,18 +51,35 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
     }, [isOpen, project]);
 
     useEffect(() => {
-        return () => {
-            document.body.style.overflow = '';
-        };
-    }, []);
-
-    useEffect(() => {
         if (!isVisible || !displayedProject) return;
+
+        const lockedScrollY = window.scrollY;
+
+        const isInModalContent = (target: EventTarget | null) =>
+            target instanceof Element && Boolean(target.closest('.modal-content'));
+
+        const preventBackgroundScroll = (event: WheelEvent | TouchEvent) => {
+            if (!isInModalContent(event.target)) {
+                event.preventDefault();
+            }
+        };
+
+        const lockWindowScroll = () => {
+            if (window.scrollY !== lockedScrollY) {
+                window.scrollTo(0, lockedScrollY);
+            }
+        };
+
+        const scrollKeys = new Set(['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ']);
 
         const handleKeyDown = (event: KeyboardEvent) => {
             if (event.key === 'Escape') {
                 onClose();
                 return;
+            }
+
+            if (scrollKeys.has(event.key) && !isInModalContent(event.target)) {
+                event.preventDefault();
             }
 
             const imageCount = displayedProject.images.length;
@@ -78,8 +93,17 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
             }
         };
 
+        window.addEventListener('wheel', preventBackgroundScroll, { passive: false });
+        window.addEventListener('touchmove', preventBackgroundScroll, { passive: false });
+        window.addEventListener('scroll', lockWindowScroll);
         window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
+
+        return () => {
+            window.removeEventListener('wheel', preventBackgroundScroll);
+            window.removeEventListener('touchmove', preventBackgroundScroll);
+            window.removeEventListener('scroll', lockWindowScroll);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
     }, [isVisible, onClose, displayedProject]);
 
     if (!isMounted || !displayedProject) return null;
@@ -176,29 +200,54 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, isOpen, onClose })
                                 {t(`projects.filters.category.${displayedProject.category}`)}
                             </span>
                         </div>
-                        <span className="modal-date">{displayedProject.date}</span>
+                        <span className="modal-date">
+                            {displayedProject.date.replace(/\bnow\b/, t('experience.now'))}
+                        </span>
                     </div>
 
                     <div className="modal-title-row">
                         <h2 className="modal-title">{t(displayedProject.titleKey)}</h2>
-                        {displayedProject.link && (
-                            <a
-                                href={displayedProject.link}
-                                className="modal-project-link"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {t('projects.viewProject')}
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                    <path
-                                        d="M7 17L17 7M17 7H9M17 7V15"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    />
-                                </svg>
-                            </a>
+                        {(displayedProject.link || displayedProject.codeLink) && (
+                            <div className="modal-project-links">
+                                {displayedProject.link && (
+                                    <a
+                                        href={displayedProject.link}
+                                        className="modal-project-link"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {t('projects.viewProject')}
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path
+                                                d="M7 17L17 7M17 7H9M17 7V15"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </a>
+                                )}
+                                {displayedProject.codeLink && (
+                                    <a
+                                        href={displayedProject.codeLink}
+                                        className="modal-project-link modal-project-link--code"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {t('projects.viewCode')}
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path
+                                                d="M7 17L17 7M17 7H9M17 7V15"
+                                                stroke="currentColor"
+                                                strokeWidth="2"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </a>
+                                )}
+                            </div>
                         )}
                     </div>
 

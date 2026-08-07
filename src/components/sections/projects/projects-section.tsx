@@ -35,7 +35,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
         });
     }, [selectedType, selectedCategory]);
 
-    const projectTypes: ProjectType[] = ['all', 'personal', 'professional', 'academic'];
+    const projectTypes: ProjectType[] = ['all', 'personal', 'professional', 'academic', 'associative'];
     const projectCategories: ProjectCategory[] = ['all', 'web', 'application', 'mobile', 'game'];
 
     const setCombinedRef = useCallback((el: HTMLDivElement | null) => {
@@ -292,7 +292,9 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef }) => {
 
                                                     <div className="project-heading">
                                                         <h3 className="project-title">{t(project.titleKey)}</h3>
-                                                        <span className="project-date">{project.date}</span>
+                                                        <span className="project-date">
+                                                            {project.date.replace(/\bnow\b/, t('experience.now'))}
+                                                        </span>
                                                     </div>
 
                                                     {shortDesc && (

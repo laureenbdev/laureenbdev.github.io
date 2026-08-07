@@ -179,7 +179,7 @@
       }
 
       .project-view-more {
-        color: var(--color-accent-pop);
+        color: var(--color-charcoal);
       }
     }
 
@@ -281,7 +281,9 @@
       font-size: 0.82rem;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: var(--color-text-light);
+      color: var(--color-accent-pop);
+      text-decoration: underline;
+      text-underline-offset: 0.25em;
       transition: color 0.2s ease;
     }
   }
