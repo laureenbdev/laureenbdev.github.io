@@ -1,0 +1,31 @@
+{
+  "name": "@orbisite/blocks",
+  "version": "0.1.0",
+  "description": "Blocs UI Orbisite (React) pour pages marketing",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src"
+  ],
+  "peerDependencies": {
+    "@mdi/js": "^7.0.0",
+    "@mdi/react": "^1.6.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Orbisite/blocks.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "echo \"No tests configured\""
+  }
+}
