@@ -36,7 +36,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
                                     `experience-item--${exp.type}`,
                                     'animate-on-scroll',
                                 ].join(' ')}
-                                style={{ transitionDelay: `${index * 0.12}s` }}
+                                style={{ ['--appear-delay' as string]: `${index * 0.12}s` }}
                             >
                                 <div className="experience-marker" aria-hidden="true"></div>
 
