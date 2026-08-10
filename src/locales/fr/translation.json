@@ -33,6 +33,10 @@
       "all": "Tout",
       "typeLabel": "Type",
       "categoryLabel": "Catégorie",
+      "techLabel": "Technos",
+      "techSearch": "Rechercher…",
+      "techSelected": "{{count}} sélectionnées",
+      "clearFilters": "Réinitialiser les filtres",
       "type": {
         "all": "Tout",
         "personal": "Personnel",
@@ -102,6 +106,7 @@
     }
   },
   "skills": {
+    "filterProjects": "Voir les projets {{tech}}",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",

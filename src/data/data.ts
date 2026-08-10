@@ -14,6 +14,33 @@ export interface Project {
   codeLink?: string;
 }
 
+/** Normalize tech names so aliases like JS / JavaScript match. */
+export function normalizeTechName(tech: string): string {
+  const lower = tech.trim().toLowerCase();
+  if (lower === 'js' || lower === 'javascript') return 'javascript';
+  if (lower === 'jquery') return 'jquery';
+  return lower;
+}
+
+export function techMatches(a: string, b: string): boolean {
+  return normalizeTechName(a) === normalizeTechName(b);
+}
+
+export function getProjectTechnologies(): string[] {
+  return Array.from(new Set(projects.flatMap((project) => project.keywords))).sort((a, b) =>
+    a.localeCompare(b, undefined, { sensitivity: 'base' })
+  );
+}
+
+/** Resolve a skill label to a project keyword for filtering, or null if none. */
+export function resolveSkillToProjectTech(skill: string): string | null {
+  const technologies = getProjectTechnologies();
+  const exact = technologies.find((tech) => tech.toLowerCase() === skill.toLowerCase());
+  if (exact) return exact;
+  const alias = technologies.find((tech) => techMatches(tech, skill));
+  return alias ?? null;
+}
+
 export interface Skill {
   categoryKey: string;
   items: string[];

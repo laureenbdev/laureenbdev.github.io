@@ -33,6 +33,10 @@
       "all": "All",
       "typeLabel": "Type",
       "categoryLabel": "Category",
+      "techLabel": "Tech",
+      "techSearch": "Search…",
+      "techSelected": "{{count}} selected",
+      "clearFilters": "Reset filters",
       "type": {
         "all": "All",
         "personal": "Personal",
@@ -102,6 +106,7 @@
     }
   },
   "skills": {
+    "filterProjects": "See {{tech}} projects",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",

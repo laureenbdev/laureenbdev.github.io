@@ -11,6 +11,7 @@ import ContactSection from '../sections/contact/contact-section';
 const MainPage: React.FC = () => {
     const [activeSection, setActiveSection] = useState<string>('about');
     const [visibleElements, setVisibleElements] = useState<Set<string>>(new Set());
+    const [techFilterRequest, setTechFilterRequest] = useState<{ tech: string; key: number } | null>(null);
     const sectionsRef = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
     useEffect(() => {
@@ -131,14 +132,25 @@ const MainPage: React.FC = () => {
         sectionsRef.current[id] = el;
     };
 
+    const handleSkillFilter = (tech: string) => {
+        setTechFilterRequest({ tech, key: Date.now() });
+        scrollToSection('projects');
+    };
+
     return (
         <div className="portfolio">
             <Header activeSection={activeSection} onNavigate={scrollToSection} />
 
             <main className="main-content">
                 <AboutSection sectionRef={setSectionRef('about')} />
-                <ProjectsSection sectionRef={setSectionRef('projects')} />
-                <SkillsSection sectionRef={setSectionRef('skills')} />
+                <ProjectsSection
+                    sectionRef={setSectionRef('projects')}
+                    techFilterRequest={techFilterRequest}
+                />
+                <SkillsSection
+                    sectionRef={setSectionRef('skills')}
+                    onSkillFilter={handleSkillFilter}
+                />
                 <ExperienceSection sectionRef={setSectionRef('experience')} />
                 <ContactSection sectionRef={setSectionRef('contact')} />
             </main>

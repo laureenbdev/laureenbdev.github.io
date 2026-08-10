@@ -1,18 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './skills-section.scss';
-import { skillsData } from '../../../data/data';
+import { skillsData, resolveSkillToProjectTech } from '../../../data/data';
 
 interface SkillsSectionProps {
     sectionRef: (el: HTMLDivElement | null) => void;
+    onSkillFilter?: (tech: string) => void;
 }
 
-const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef }) => {
+const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef, onSkillFilter }) => {
     const { t } = useTranslation();
 
     return (
-        <section 
-            id="skills" 
+        <section
+            id="skills"
             className="section section-skills"
             ref={sectionRef}
             data-section-id="skills"
@@ -24,16 +25,37 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef }) => {
                 </div>
                 <div className="skills-grid">
                     {skillsData.map((skill, index) => (
-                        <div 
-                            key={index} 
+                        <div
+                            key={index}
                             className="skill-category animate-on-scroll"
                             style={{ transitionDelay: `${index * 0.1}s` }}
                         >
                             <h3 className="skill-category-title">{t(skill.categoryKey)}</h3>
                             <div className="skill-items">
-                                {skill.items.map((item, itemIndex) => (
-                                    <span key={itemIndex} className="skill-item">{item}</span>
-                                ))}
+                                {skill.items.map((item, itemIndex) => {
+                                    const projectTech = resolveSkillToProjectTech(item);
+                                    const canFilter = projectTech !== null && onSkillFilter !== undefined;
+
+                                    if (!canFilter || projectTech === null || !onSkillFilter) {
+                                        return (
+                                            <span key={itemIndex} className="skill-item">
+                                                {item}
+                                            </span>
+                                        );
+                                    }
+
+                                    return (
+                                        <button
+                                            key={itemIndex}
+                                            type="button"
+                                            className="skill-item skill-item--link"
+                                            onClick={() => onSkillFilter(projectTech)}
+                                            title={t('skills.filterProjects', { tech: item })}
+                                        >
+                                            {item}
+                                        </button>
+                                    );
+                                })}
                             </div>
                         </div>
                     ))}
@@ -44,4 +66,3 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef }) => {
 };
 
 export default SkillsSection;
-
