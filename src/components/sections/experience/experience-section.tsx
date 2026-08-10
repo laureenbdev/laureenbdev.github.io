@@ -11,8 +11,8 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
     const { t } = useTranslation();
 
     return (
-        <section 
-            id="experience" 
+        <section
+            id="experience"
             className="section section-experience"
             ref={sectionRef}
             data-section-id="experience"
@@ -29,39 +29,32 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
                         const isCurrent = endDateValue === 'now';
 
                         return (
-                            <article 
-                                key={exp.id} 
+                            <article
+                                key={exp.id}
                                 className={[
                                     'experience-item',
                                     `experience-item--${exp.type}`,
-                                    isCurrent ? 'experience-item--current' : 'experience-item--past',
                                     'animate-on-scroll',
                                 ].join(' ')}
-                                style={{ transitionDelay: `${index * 0.15}s` }}
+                                style={{ transitionDelay: `${index * 0.12}s` }}
                             >
                                 <div className="experience-marker" aria-hidden="true"></div>
-                                <div className="experience-content">
-                                    <div className="experience-meta">
-                                        <div className="experience-badges">
-                                            <span className="experience-type">
-                                                {t(`experience.types.${exp.type}`)}
-                                            </span>
-                                            {isCurrent && (
-                                                <span className="experience-current">
-                                                    {t('experience.current')}
-                                                </span>
-                                            )}
-                                        </div>
-                                        <span className="experience-period">
-                                            {t(exp.startDateKey)} - {isCurrent ? t('experience.now') : endDateValue}
-                                        </span>
-                                    </div>
 
+                                <aside className="experience-aside">
+                                    <span className="experience-type">
+                                        {t(`experience.types.${exp.type}`)}
+                                    </span>
+                                    <time className="experience-period">
+                                        {t(exp.startDateKey)} – {isCurrent ? t('experience.now') : endDateValue}
+                                    </time>
+                                </aside>
+
+                                <div className="experience-content">
                                     <div className="experience-header">
                                         {exp.image && (
                                             <div className="experience-image-wrapper">
-                                                <img 
-                                                    src={exp.image} 
+                                                <img
+                                                    src={exp.image}
                                                     alt=""
                                                     className="experience-image"
                                                     onError={(e) => {

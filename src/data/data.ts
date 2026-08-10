@@ -79,7 +79,7 @@ export const projects: Project[] = [
     type: "associative",
     category: "web",
     date: "05/2026 - now",
-    keywords: ['CSS'],
+    keywords: ['CSS', 'Django'],
   },
   {
     titleKey: "projects.list.project10.title",
@@ -100,7 +100,7 @@ export const projects: Project[] = [
     type: "professional",
     category: "web",
     date: "07-2025",
-    keywords: ['PHP', 'Moodle', 'JavaScript', 'HTML', 'CSS'],
+    keywords: ['PHP', 'JavaScript', 'HTML', 'CSS'],
     link: "https://moodle.org/plugins/block_key_figures",
     codeLink: "https://github.com/Eticeo/moodle-block_key_figures",
   },
@@ -237,7 +237,7 @@ export const experienceData: Experience[] = [
       "experience.list.exp7.description.1",
       "experience.list.exp7.description.2"
     ],
-    technologies: ["HTML", "CSS", "Hugo"],
+    technologies: ["HTML", "CSS", "Django", "Hugo"],
     image: "/img/exp/prologin.webp"
   },
   {
