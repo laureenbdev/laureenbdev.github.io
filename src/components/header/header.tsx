@@ -16,6 +16,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
         i18nInstance.changeLanguage(lng);
     };
 
+    const currentLanguage = (i18nInstance.resolvedLanguage || i18nInstance.language || 'fr')
+        .toLowerCase()
+        .split('-')[0];
+
     const handleNavClick = (sectionId: string) => {
         onNavigate(sectionId);
         setIsMenuOpen(false);
@@ -80,18 +84,18 @@ const Header: React.FC<HeaderProps> = ({ activeSection, onNavigate }) => {
                 </ul>
                 <div className="nav-language">
                     <button 
-                        className={`lang-button ${i18nInstance.language === 'fr' ? 'active' : ''}`}
+                        className={`lang-button tooltip-anchor ${currentLanguage === 'fr' ? 'active' : ''}`}
                         onClick={() => changeLanguage('fr')}
-                        title="Français"
                     >
                         FR
+                        <span className="tooltip bottom">{t('skills.items.French')}</span>
                     </button>
                     <button 
-                        className={`lang-button ${i18nInstance.language === 'en' ? 'active' : ''}`}
+                        className={`lang-button tooltip-anchor ${currentLanguage === 'en' ? 'active' : ''}`}
                         onClick={() => changeLanguage('en')}
-                        title="English"
                     >
                         EN
+                        <span className="tooltip bottom">{t('skills.items.English')}</span>
                     </button>
                 </div>
                 <button 

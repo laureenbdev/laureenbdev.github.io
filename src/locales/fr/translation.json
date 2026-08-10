@@ -107,6 +107,10 @@
   },
   "skills": {
     "filterProjects": "Voir les projets {{tech}}",
+    "items": {
+      "French": "Français",
+      "English": "Anglais"
+    },
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",

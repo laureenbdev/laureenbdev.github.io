@@ -296,15 +296,13 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef, techFilte
                         <div className="projects-filters-toolbar">
                             <button
                                 type="button"
-                                className="filters-reset"
+                                className="filters-reset tooltip-anchor"
                                 onClick={handleClearAllFilters}
-                                disabled={!hasActiveFilters || isFiltering}
-                                aria-label={t('projects.filters.clearFilters')}
-                                title={t('projects.filters.clearFilters')}
                             >
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                     <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
                                 </svg>
+                                <span className="tooltip left">{t('projects.filters.clearFilters')}</span>
                             </button>
                         </div>
 

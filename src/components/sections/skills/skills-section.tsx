@@ -33,13 +33,14 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef, onSkillFilter
                             <h3 className="skill-category-title">{t(skill.categoryKey)}</h3>
                             <div className="skill-items">
                                 {skill.items.map((item, itemIndex) => {
+                                    const label = t(`skills.items.${item}`, { defaultValue: item });
                                     const projectTech = resolveSkillToProjectTech(item);
                                     const canFilter = projectTech !== null && onSkillFilter !== undefined;
 
                                     if (!canFilter || projectTech === null || !onSkillFilter) {
                                         return (
                                             <span key={itemIndex} className="skill-item">
-                                                {item}
+                                                {label}
                                             </span>
                                         );
                                     }
@@ -48,11 +49,13 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ sectionRef, onSkillFilter
                                         <button
                                             key={itemIndex}
                                             type="button"
-                                            className="skill-item skill-item--link"
+                                            className="skill-item skill-item--link tooltip-anchor"
                                             onClick={() => onSkillFilter(projectTech)}
-                                            title={t('skills.filterProjects', { tech: item })}
                                         >
-                                            {item}
+                                            {label}
+                                            <span className="tooltip top">
+                                                {t('skills.filterProjects', { tech: label })}
+                                            </span>
                                         </button>
                                     );
                                 })}
