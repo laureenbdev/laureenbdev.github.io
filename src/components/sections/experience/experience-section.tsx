@@ -34,6 +34,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
                                 className={[
                                     'experience-item',
                                     `experience-item--${exp.type}`,
+                                    isCurrent ? 'experience-item--current' : 'experience-item--past',
                                     'animate-on-scroll',
                                 ].join(' ')}
                                 style={{ ['--appear-delay' as string]: `${index * 0.12}s` }}

@@ -294,6 +294,13 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef, techFilte
 
                     <div className="projects-filters">
                         <div className="projects-filters-toolbar">
+                            <p
+                                className="projects-result-count"
+                                aria-live="polite"
+                                aria-atomic="true"
+                            >
+                                {t('projects.resultCount', { count: filteredProjects.length })}
+                            </p>
                             <button
                                 type="button"
                                 className="filters-reset tooltip-anchor"

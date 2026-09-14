@@ -27,6 +27,8 @@
     "viewCode": "Voir le code",
     "viewMore": "Voir plus de détails",
     "empty": "Aucun projet pour ces filtres.",
+    "resultCount_one": "{{count}} projet",
+    "resultCount_other": "{{count}} projets",
     "github": "GitHub",
     "keywords": "Mots-clés",
     "filters": {
@@ -136,7 +138,8 @@
         "endDate": "now",
         "description": {
           "1": "Encadrement et animation des stages Girls Can Code!, destinés à des collégiennes et lycéennes pour leur faire découvrir la programmation et promouvoir la mixité dans l'informatique.",
-          "2": "Conception, développement et habillage graphique d'interfaces web"
+          "2": "Conception, développement et habillage graphique d'interfaces web",
+          "3": "Organisation et encadrement de la finale nationale du concours d'algorithmique Gradient, organisé en partenariat avec Mistral"
         }
       },
       "exp1": {

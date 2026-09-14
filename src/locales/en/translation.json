@@ -27,6 +27,8 @@
     "viewCode": "View code",
     "viewMore": "See more details",
     "empty": "No projects match these filters.",
+    "resultCount_one": "{{count}} project",
+    "resultCount_other": "{{count}} projects",
     "github": "GitHub",
     "keywords": "Keywords",
     "filters": {
@@ -136,7 +138,8 @@
         "endDate": "now",
         "description": {
           "1": "Mentoring and running Girls Can Code! workshops for middle and high school girls to introduce them to programming and promote gender diversity in tech.",
-          "2": "Design, development, and visual styling of web interfaces"
+          "2": "Design, development, and visual styling of web interfaces",
+          "3": "Organization and supervision of the national final of the Gradient algorithm contest, held in partnership with Mistral"
         }
       },
       "exp1": {

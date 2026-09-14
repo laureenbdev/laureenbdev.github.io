@@ -66,9 +66,14 @@
         --exp-accent: var(--color-accent);
       }
 
+      &--current {
+        border-color: color-mix(in srgb, var(--exp-accent) 40%, var(--color-stone));
+        box-shadow: 0 6px 20px color-mix(in srgb, var(--exp-accent) 14%, transparent);
+      }
+
       .experience-marker {
         position: absolute;
-        left: -1.6rem;
+        left: -1.9rem;
         top: 1.55rem;
         width: 9px;
         height: 9px;
@@ -207,6 +212,17 @@
         }
       }
     }
+  }
+}
+
+@keyframes experience-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 3px var(--color-beige), 0 0 0 3px color-mix(in srgb, var(--exp-accent) 0%, transparent);
+  }
+
+  50% {
+    box-shadow: 0 0 0 3px var(--color-beige), 0 0 0 8px color-mix(in srgb, var(--exp-accent) 22%, transparent);
   }
 }
 

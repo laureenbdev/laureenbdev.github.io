@@ -262,7 +262,8 @@ export const experienceData: Experience[] = [
     endDateKey: "experience.list.exp7.endDate",
     descriptionKeys: [
       "experience.list.exp7.description.1",
-      "experience.list.exp7.description.2"
+      "experience.list.exp7.description.2",
+      "experience.list.exp7.description.3"
     ],
     technologies: ["HTML", "CSS", "Django", "Hugo"],
     image: "/img/exp/prologin.webp"
