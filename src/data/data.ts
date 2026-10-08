@@ -106,7 +106,7 @@ export const projects: Project[] = [
     type: "personal",
     category: "web",
     date: "07/2026 - now",
-    keywords: ['HTML', 'CSS', 'JS'],
+    keywords: ['HTML', 'CSS', 'JavaScript'],
     link: "https://github.com/laureenbdev/cssbattle",
   },
   {
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     images: ["keyfigures"],
     type: "professional",
     category: "web",
-    date: "07-2025",
+    date: "07/2025",
     keywords: ['PHP', 'JavaScript', 'HTML', 'CSS'],
     link: "https://moodle.org/plugins/block_key_figures",
     codeLink: "https://github.com/Eticeo/moodle-block_key_figures",
@@ -210,7 +210,7 @@ export const projects: Project[] = [
 export const skillsData: Skill[] = [
   {
     categoryKey: "skills.categories.frontend",
-    items: ["HTML", "CSS", "SCSS", "JavaScript", "TypeScript", "JQuery", "React", "Angular"],
+    items: ["HTML", "CSS", "SCSS", "JavaScript", "TypeScript", "jQuery", "React", "Angular"],
   },
   {
     categoryKey: "skills.categories.backend",
@@ -247,7 +247,7 @@ export const experienceData: Experience[] = [
       "experience.list.exp2.description.2",
       "experience.list.exp2.description.3"
     ],
-    technologies: ["PHP", "JavaScript", "CSS", "SCSS", "HTML", "MySQL", "Moodle", "JQuery"],
+    technologies: ["PHP", "JavaScript", "CSS", "SCSS", "HTML", "MySQL", "Moodle", "jQuery"],
     image: "/img/exp/eticeo.png"
   },
   {

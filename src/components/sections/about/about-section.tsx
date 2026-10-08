@@ -23,7 +23,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ sectionRef }) => {
                         <h1 className="about-name animate-on-scroll">{aboutData.name}</h1>
                         <p
                             className="about-title animate-on-scroll"
-                            style={{ transitionDelay: '0.1s' }}
+                            style={{ ['--appear-delay' as string]: '0.1s' }}
                         >
                             {t(aboutData.titleKey)}
                         </p>
@@ -32,7 +32,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ sectionRef }) => {
                                 <p
                                     key={index}
                                     className="animate-on-scroll"
-                                    style={{ transitionDelay: `${0.2 + index * 0.1}s` }}
+                                    style={{ ['--appear-delay' as string]: `${0.2 + index * 0.1}s` }}
                                 >
                                     {t(key)}
                                 </p>

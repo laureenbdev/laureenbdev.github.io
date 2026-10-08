@@ -78,7 +78,7 @@
       padding: 0.55rem 1rem;
       transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.active) {
         color: var(--color-accent-pop);
         border-color: var(--color-accent-pop);
       }
@@ -92,6 +92,7 @@
         background-color: var(--color-accent-pop);
         color: var(--color-cream);
         border-color: var(--color-accent-pop);
+        cursor: default;
       }
 
       &--category.active {
