@@ -104,6 +104,11 @@
         "title": "Portfolio",
         "descriptionShort": "",
         "description": "Personal portfolio presenting my background, skills, and projects. Built with <b>React</b>, <b>TypeScript</b>, and <b>SCSS</b>, with a bilingual FR/EN interface."
+      },
+      "project11": {
+        "title": "Vioovr - Clinical case management and presentation platform",
+        "descriptionShort": "",
+        "description": "As part of my work at Eticeo, I contributed to the development of the <b>Vioovr</b> application. It is a <b>web platform</b> for healthcare professionals to store, manage, share, and present <b>clinical cases</b> and their medical imaging.<br /><br />We worked as a team of 2 across all development stages: design, planning, and front-end and back-end development. I was also fully responsible for designing and building the <b>user interface</b>.<br /><br />Technologies used: <b>Symfony, PHP, MySQL, JavaScript, HTML, CSS</b>."
       }
     }
   },

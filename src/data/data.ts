@@ -88,6 +88,17 @@ export const aboutData: AboutData = {
 
 export const projects: Project[] = [
   {
+    titleKey: "projects.list.project11.title",
+    descriptionShortKey: "projects.list.project11.descriptionShort",
+    descriptionKey: "projects.list.project11.description",
+    images: ["vioovr"],
+    type: "professional",
+    category: "web",
+    date: "05/2026 - 08/2026",
+    keywords: ['Symfony', 'PHP', 'MySQL', 'JavaScript', 'HTML', 'CSS'],
+    link: "https://vioovr.com",
+  },
+  {
     titleKey: "projects.list.project9.title",
     descriptionShortKey: "projects.list.project9.descriptionShort",
     descriptionKey: "projects.list.project9.description",
@@ -115,7 +126,7 @@ export const projects: Project[] = [
     images: ["portfolio", "portfolio-2"],
     type: "personal",
     category: "web",
-    date: "11/2025 - now",
+    date: "11/2025 - 08/2026",
     keywords: ['React', 'TypeScript', 'SCSS'],
     codeLink: "https://github.com/laureenbdev/laureenbdev.github.io",
   },
