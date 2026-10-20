@@ -74,7 +74,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({ sectionRef }) => {
                     key={link.key}
                     href={link.href}
                     className="contact-link animate-on-scroll"
-                    style={{ ['--appear-delay' as string]: `${delayOffset + index * 0.1}s` }}
+                    style={{ ['--appear-delay' as string]: `${delayOffset + index * 0.05}s` }}
                     {...(link.external
                         ? { target: '_blank', rel: 'noopener noreferrer' }
                         : {})}

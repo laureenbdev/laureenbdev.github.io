@@ -107,7 +107,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef, techFilte
         cards?.forEach((card, index) => {
             const el = card as HTMLElement;
             el.classList.remove('visible');
-            el.style.setProperty('--appear-delay', `${index * 0.08}s`);
+            el.style.setProperty('--appear-delay', `${index * 0.04}s`);
         });
 
         requestAnimationFrame(() => {
@@ -222,22 +222,25 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef, techFilte
 
     useEffect(() => {
         const section = sectionElRef.current;
-        if (!section || hasRevealed) return;
+        if (!section) return;
 
         const observer = new IntersectionObserver(
             (entries) => {
-                if (entries.some((entry) => entry.isIntersecting)) {
-                    revealCards();
-                    setHasRevealed(true);
-                    observer.disconnect();
-                }
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        revealCards();
+                        setHasRevealed(true);
+                    } else {
+                        hideCards();
+                    }
+                });
             },
             { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
         );
 
         observer.observe(section);
         return () => observer.disconnect();
-    }, [hasRevealed, revealCards]);
+    }, [revealCards, hideCards]);
 
     useEffect(() => {
         const container = scrollContainerRef.current;
@@ -435,7 +438,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ sectionRef, techFilte
                                             <article 
                                                 key={project.titleKey} 
                                                 className="project-card animate-on-scroll"
-                                                style={{ ['--appear-delay' as string]: `${index * 0.08}s` }}
+                                                style={{ ['--appear-delay' as string]: `${index * 0.04}s` }}
                                                 onClick={() => openModal(project)}
                                             >
                                                 <div className="project-image-wrapper">

@@ -38,13 +38,14 @@ const MainPage: React.FC = () => {
             }
         );
 
-        // Observer for animatable elements
+        // Observer for animatable elements — replay on every enter/leave
         const animatedObserver = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
-                        animatedObserver.unobserve(entry.target);
+                    } else {
+                        entry.target.classList.remove('visible');
                     }
                 });
             },
@@ -55,7 +56,7 @@ const MainPage: React.FC = () => {
         );
 
         const observeAnimatedElements = () => {
-            document.querySelectorAll('.animate-on-scroll:not(.visible)').forEach((el) => {
+            document.querySelectorAll('.animate-on-scroll').forEach((el) => {
                 if (el.closest('[data-manual-reveal="true"]')) return;
                 animatedObserver.observe(el);
             });
@@ -107,12 +108,12 @@ const MainPage: React.FC = () => {
 
         animated.forEach((el, index) => {
             const htmlEl = el as HTMLElement;
-            htmlEl.style.setProperty('--appear-delay', `${index * 0.08}s`);
+            htmlEl.style.setProperty('--appear-delay', `${index * 0.04}s`);
         });
 
         window.setTimeout(() => {
             animated.forEach((el) => el.classList.add('visible'));
-        }, 280);
+        }, 100);
     };
 
     const scrollToSection = (sectionId: string) => {

@@ -37,7 +37,7 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
                                     isCurrent ? 'experience-item--current' : 'experience-item--past',
                                     'animate-on-scroll',
                                 ].join(' ')}
-                                style={{ ['--appear-delay' as string]: `${index * 0.12}s` }}
+                                style={{ ['--appear-delay' as string]: `${index * 0.05}s` }}
                             >
                                 <div className="experience-marker" aria-hidden="true"></div>
 
@@ -46,7 +46,12 @@ const ExperienceSection: React.FC<ExperienceSectionProps> = ({ sectionRef }) => 
                                         {t(`experience.types.${exp.type}`)}
                                     </span>
                                     <time className="experience-period">
-                                        {t(exp.startDateKey)} – {isCurrent ? t('experience.now') : endDateValue}
+                                        {t(exp.startDateKey)} –{' '}
+                                        {isCurrent ? (
+                                            <span className="experience-now">{t('experience.now')}</span>
+                                        ) : (
+                                            endDateValue
+                                        )}
                                     </time>
                                 </aside>
 

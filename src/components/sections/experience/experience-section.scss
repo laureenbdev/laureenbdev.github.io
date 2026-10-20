@@ -40,8 +40,8 @@
       opacity: 0;
       transform: translateY(14px);
       transition:
-        opacity 0.5s ease var(--appear-delay),
-        transform 0.5s ease var(--appear-delay),
+        opacity 0.35s ease var(--appear-delay),
+        transform 0.35s ease var(--appear-delay),
         box-shadow 0.25s ease;
 
       &.visible {
@@ -59,7 +59,7 @@
       }
 
       &--education {
-        --exp-accent: var(--color-charcoal);
+        --exp-accent: #5B7A99;
       }
 
       &--association {
@@ -67,8 +67,14 @@
       }
 
       &--current {
-        border-color: color-mix(in srgb, var(--exp-accent) 40%, var(--color-stone));
-        box-shadow: 0 6px 20px color-mix(in srgb, var(--exp-accent) 14%, transparent);
+        border: 1.5px solid color-mix(in srgb, var(--exp-accent) 65%, var(--color-stone));
+        border-left: 5px solid var(--exp-accent);
+        box-shadow: 0 4px 16px rgba(44, 44, 44, 0.07);
+
+        .experience-now {
+          color: var(--exp-accent);
+          font-weight: 600;
+        }
       }
 
       .experience-marker {

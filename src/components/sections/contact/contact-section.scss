@@ -15,8 +15,8 @@
       opacity: 0;
       transform: translateY(30px);
       transition:
-        opacity 0.6s ease var(--appear-delay),
-        transform 0.6s ease var(--appear-delay);
+        opacity 0.35s ease var(--appear-delay),
+        transform 0.35s ease var(--appear-delay);
 
       &.visible {
         opacity: 1;
@@ -41,8 +41,8 @@
       opacity: 0;
       transform: translateY(30px);
       transition:
-        opacity 0.6s ease var(--appear-delay),
-        transform 0.6s ease var(--appear-delay);
+        opacity 0.35s ease var(--appear-delay),
+        transform 0.35s ease var(--appear-delay);
 
       &.visible {
         opacity: 1;
@@ -68,8 +68,8 @@
         opacity: 0;
         transform: translateY(30px);
         transition:
-          opacity 0.6s ease var(--appear-delay),
-          transform 0.6s ease var(--appear-delay),
+          opacity 0.35s ease var(--appear-delay),
+          transform 0.35s ease var(--appear-delay),
           border-bottom-color 0.25s ease,
           padding-left 0.25s ease;
 
